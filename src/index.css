@@ -11,3 +11,53 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.currency {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 5%;
+    left: 30%;
+    filter: blur(15px);
+    animation: moving 20s linear infinite alternate;
+    animation-delay: -8s;
+    transition: filter 0.3s ease, scale 0.4s ease;
+    scale: 1;
+    z-index: 1;
+}
+.currency:hover {
+    filter: blur(0);
+    scale: 1.3;
+}
+.currency::before {
+    content: '';
+    position: absolute;
+    top: -0.1px;
+    left: -0.1px;
+    right: -0.1px;
+    bottom: -0.1px;
+    border: 2px solid rgba(247, 147, 26 , 0.3);
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0.6);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    z-index: -1;
+}
+.currency::after {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: -12px;
+    right: -12px;
+    bottom: -12px;
+    border: 0.5px solid rgba(247, 147, 26 , 0.1);
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0.6);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    z-index: -2;
+}
+.currency:hover::before , .currency:hover::after{
+    opacity: 1;
+    transform: scale(1);
+}

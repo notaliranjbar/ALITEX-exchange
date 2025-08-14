@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import currenciesIcons from "./currencies.json";
+import CurrenciesIcons from "./currenciesIcons.js";
 const StartingPage= ()=> {
     const [items , setItems] = useState([])
     useEffect(() =>{
@@ -35,27 +36,9 @@ const StartingPage= ()=> {
     return (
         <div style={{ position: "relative", width: "100%", height: "100vh" }}>
         {items.map(item => (
-            <div
-            key={item.id}
-            style={{
-                position: "absolute",
-                left: item.position.left,
-                top: item.position.top,
-                textAlign: "center",
-                border: "1px solid #ccc",
-                padding: "8px",
-                borderRadius: "8px",
-                backgroundColor: "#f9f9f9",
-                width: "120px"
-            }}
-            >
-            <img src={item.image} alt={item.id} width={50} />
-            <p>{item.id}</p>
-            <p>${item.price}</p>
-            <p style={{ color: item.dailyChange >= 0 ? "green" : "red" }}>
-                {item.dailyChange.toFixed(2)}%
-            </p>
-            </div>
+            <CurrenciesIcons itemId = {item.id} imageUrl = {item.image} 
+            itemPrice = {item.price} itemDailyChange = {item.dailyChange} itemPositionLeft = {item.position.left}
+            itemPositionTop = { item.position.top} />
         ))}
         </div>
     );
