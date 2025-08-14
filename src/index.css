@@ -61,3 +61,37 @@ code {
     opacity: 1;
     transform: scale(1);
 }
+@keyframes moving {
+    0%{
+        transform: translateY(0) rotate(-45deg);
+
+    }
+  12.5%{
+    transform: translateY(-15px) rotate(-22.5deg);
+
+  }
+  25%{
+    transform: translateY(0) rotate(0);
+
+  }
+  37.5%{
+    transform: translateY(-15px) rotate(22.5deg);
+
+  }
+  50%{
+    transform: translateY(0) rotate(45deg);
+
+  }
+  62.5%{
+    transform: translateY(-15px) rotate(22.5deg);
+  }
+  75%{
+    transform: translateY(0) rotate(0);
+  }
+  87.5%{
+    transform: translateY(-15px) rotate(-22.5deg);
+  }
+  100%{
+    transform: translateY(0) rotate(-45deg);
+  }
+}
