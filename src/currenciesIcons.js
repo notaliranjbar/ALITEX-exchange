@@ -1,6 +1,9 @@
-const currenciesIcons = ()=>{
+const currenciesIcons = (id , imageUrl)=>{
     return(
-        <div>
+        <div id={id}>
+            <img src={imageUrl}>
+            </img>
+
             
         </div>
 
