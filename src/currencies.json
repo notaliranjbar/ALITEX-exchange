@@ -1,22 +1,22 @@
 [
   {
     "id": "bitcoin",
-    "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png"
+    "image": "../img/8369-bitcoin_102502.png"
   },
   {
     "id": "ethereum",
-    "image": "https://assets.coingecko.com/coins/images/279/large/ethereum.png"
+    "image": "../img/8369-bitcoin_102502.png"
   },
   {
     "id": "dogecoin",
-    "image": "https://assets.coingecko.com/coins/images/5/large/dogecoin.png"
+    "image": "../img/8369-bitcoin_102502.png"
   },
   {
     "id": "uniswap",
-    "image": "https://assets.coingecko.com/coins/images/12504/large/uniswap-uni.png"
+    "image": "../img/8369-bitcoin_102502.png"
   },
   {
     "id": "tether",
-    "image": "https://assets.coingecko.com/coins/images/325/large/Tether-logo.png"
+    "image": "../img/8369-bitcoin_102502.png"
   }
 ]

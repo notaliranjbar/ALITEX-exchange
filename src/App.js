@@ -1,9 +1,7 @@
-
+import StartingPage from "./startingPage.js";
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <StartingPage/>
   );
 }
 
