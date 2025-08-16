@@ -1,14 +1,13 @@
 const CurrenciesIcons = ({itemId , imageUrl , itemPrice ,itemDailyChange , itemPositionLeft , itemPositionTop })=>{
     return(
-        <div class = "currency">
-            <div
+        <div>
+            <div  class = "currency"
             key={itemId}
             style={{
                 position: "absolute",
                 left: itemPositionLeft,
                 top: itemPositionTop,
                 textAlign: "center",
-                width: "120px", 
             }}
             >
             <img src={imageUrl} alt={itemId} width={50} />

@@ -13,14 +13,15 @@ code {
 }
 
 .currency {
+    transform-origin: center center;
     width: 80px;
     height: 80px;
-    position: absolute;
     top: 5%;
     left: 30%;
     filter: blur(15px);
     animation: moving 20s linear infinite alternate;
-    animation-delay: -8s;
+    animation-delay: 0s;
+    transform-origin: center center;
     transition: filter 0.3s ease, scale 0.4s ease;
     scale: 1;
     z-index: 1;
@@ -62,7 +63,7 @@ code {
     transform: scale(1);
 }
 @keyframes moving {
-    0%{
+  0%{
         transform: translateY(0) rotate(-45deg);
 
     }
