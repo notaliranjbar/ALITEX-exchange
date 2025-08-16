@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import currenciesIcons from "./currencies.json";
 import CurrenciesIcons from "./currenciesIcons.js";
+import Login from "./Login.js";
 const positionsList = [
 { top: 60, left: 870 },
 { top: 380, left: 900 },
@@ -51,13 +52,17 @@ const StartingPage= ()=> {
         return () => clearInterval(intervalPriceFetcher)
     }, [])
     return (
-        <div style={{ position: "relative", width: "100%", height: "100vh" }}>
-        {items.map(item => (
-            <CurrenciesIcons  key = {item.id}  itemId = {item.id} imageUrl = {item.image} 
-            itemPrice = {item.price} itemDailyChange = {item.dailyChange} itemPositionLeft = {item.position.left}
-            itemPositionTop = { item.position.top} borderColor = {item.borderColor} size = {(Math.floor(Math.random() * (110 - 60 + 1)) + 60)}/>
-        ))}
-        </div>
+        <>
+            <div style={{ position: "relative", width: "100%", height: "100vh" }}>
+            {items.map(item => (
+                <CurrenciesIcons  key = {item.id}  itemId = {item.id} imageUrl = {item.image} 
+                itemPrice = {item.price} itemDailyChange = {item.dailyChange} itemPositionLeft = {item.position.left}
+                itemPositionTop = { item.position.top} borderColor = {item.borderColor} size = {(Math.floor(Math.random() * (110 - 60 + 1)) + 60)}/>
+            ))}
+            </div>
+            <Login/>
+        </>
+
     );
 }
 export default StartingPage;
