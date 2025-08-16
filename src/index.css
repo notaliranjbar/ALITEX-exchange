@@ -245,26 +245,40 @@ body {
   text-align: center;
   text-shadow: 0 2px 8px rgba(77, 175, 255, 0.6);
 }
-.login-text-above {
+.loginHeader{
   color: #4dafff; /* light blue */
   font-size: 1.2rem;
   margin-bottom: 1rem;
   text-align: center;
 }
 
-.login-text-below {
+.loginFooter {
   color: #ccc;
   font-size: 1rem;
   margin-top: 1rem;
   text-align: center;
+  pointer-events: auto;
 }
 
-.login-text-below a {
+.loginFooter a {
   color: #4dafff;
   text-decoration: none;
   font-weight: bold;
 }
 
-.login-text-below a:hover {
+.loginFooter a:hover {
   text-decoration: underline;
+}
+.loginDiscription{
+  font-size: 1.1rem;
+  position: relative;
+  top: 6%;
+  color: rgba(128, 128, 128, 0.6);
+  text-align: center;
+  line-height: 1.4;  
+  flex-direction: column;
+
+}
+.loginDiscription span{
+  display: block;
 }
