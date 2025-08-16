@@ -1,4 +1,4 @@
-const CurrenciesIcons = ({itemId , imageUrl , itemPrice ,itemDailyChange , itemPositionLeft , itemPositionTop , borderColor })=>{
+const CurrenciesIcons = ({itemId , imageUrl , itemPrice ,itemDailyChange , itemPositionLeft , itemPositionTop , borderColor ,size})=>{
     return(
         <>
         <div  className="currency"
@@ -9,9 +9,11 @@ const CurrenciesIcons = ({itemId , imageUrl , itemPrice ,itemDailyChange , itemP
                 left: itemPositionLeft,
                 top: itemPositionTop,
                 textAlign: "center",
+                width : size , 
+                height : size
             }}
         >
-        <img src={imageUrl} alt={itemId} width={50} />
+        <img src={imageUrl} alt={itemId} width={size} />
         </div>
         <div className= "priceWrapper" key={itemId} style={{
             position: "absolute",

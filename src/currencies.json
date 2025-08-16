@@ -16,12 +16,27 @@
   },
   {
     "id": "uniswap",
-    "image": "/img/images.png",
+    "image": "/img/uniswap-uni-logo.png",
     "borderColor" : "(255, 82, 147 , 0.7)"
   },
   {
     "id": "tether",
     "image": "/img/Cjdowner-Cryptocurrency-Flat-Tether-USDT.512.png",
     "borderColor" : "(22, 160, 133,  0.3)"
+  },
+  {
+    "id": "shiba",
+    "image": "/img/shiba-inu-shib-logo.png",
+    "borderColor" : "(255, 164, 9 , 0.3)"
+  },
+  {
+    "id": "cardano",
+    "image": "/img/cardano-ada-logo.png",
+    "borderColor" : "(0, 51, 173 , 0.3)"
+  },
+  {
+    "id": "pepe",
+    "image": "/img/pepe-pepe-logo.png",
+    "borderColor" : "(72, 128, 0 , 0.3)"
   }
 ]
