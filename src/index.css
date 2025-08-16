@@ -1,23 +1,35 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  background-color: #fff;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
+#root {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
 .currency {
+    position: absolute;
     transform-origin: center center;
     width: 80px;
     height: 80px;
-    top: 5%;
-    left: 30%;
     filter: blur(15px);
     animation: moving 20s linear infinite alternate;
     animation-delay: 0s;
@@ -25,6 +37,10 @@ code {
     transition: filter 0.3s ease, scale 0.4s ease;
     scale: 1;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .currency:hover {
     filter: blur(0);
@@ -33,16 +49,17 @@ code {
 .currency::before {
     content: '';
     position: absolute;
-    top: -0.1px;
-    left: -0.1px;
-    right: -0.1px;
-    bottom: -0.1px;
-    border: 2px solid rgba(247, 147, 26 , 0.3);
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    border: 2px solid var(--border-color);
     border-radius: 50%;
     opacity: 0;
     transform: scale(0.6);
     transition: opacity 0.4s ease, transform 0.4s ease;
     z-index: -1;
+    box-sizing: border-box;
 }
 .currency::after {
     content: '';
@@ -51,7 +68,7 @@ code {
     left: -12px;
     right: -12px;
     bottom: -12px;
-    border: 0.5px solid rgba(247, 147, 26 , 0.1);
+    border: 0.5px solid var(--border-color);
     border-radius: 50%;
     opacity: 0;
     transform: scale(0.6);
@@ -62,6 +79,30 @@ code {
     opacity: 1;
     transform: scale(1);
 }
+.priceWrapper {
+  opacity: 0;
+  filter: blur(15px);
+  animation: priceMoving 20s linear infinite alternate;
+  animation-delay: 0s;
+  transform-origin: center center;
+  transition: filter 0.3s ease, scale 0.4s ease,  opacity 0.3s ease;
+  position: absolute;
+  z-index: 2;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+.currency:hover + .priceWrapper {
+  opacity: 1;
+  scale: 1.3;
+  filter: blur(0px);
+}
+.priceWrapper p span {
+  display: block;
+  text-align: center;
+}
+
 @keyframes moving {
   0%{
         transform: translateY(0) rotate(-45deg);
@@ -94,5 +135,40 @@ code {
   }
   100%{
     transform: translateY(0) rotate(-45deg);
+  }
+}
+
+@keyframes priceMoving {
+  0%{
+      transform: translateY(0) ;
+
+    }
+  12.5%{
+    transform: translateY(-15px) ;
+
+  }
+  25%{
+    transform: translateY(0) ;
+
+  }
+  37.5%{
+    transform: translateY(-15px);
+
+  }
+  50%{
+    transform: translateY(0);
+
+  }
+  62.5%{
+    transform: translateY(-15px);
+  }
+  75%{
+    transform: translateY(0) ;
+  }
+  87.5%{
+    transform: translateY(-15px) ;
+  }
+  100%{
+    transform: translateY(0) ;
   }
 }

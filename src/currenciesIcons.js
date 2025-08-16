@@ -1,20 +1,26 @@
-const CurrenciesIcons = ({itemId , imageUrl , itemPrice ,itemDailyChange , itemPositionLeft , itemPositionTop })=>{
+const CurrenciesIcons = ({itemId , imageUrl , itemPrice ,itemDailyChange , itemPositionLeft , itemPositionTop , borderColor })=>{
     return(
-        <div>
-            <div  class = "currency"
+        <>
+        <div  className="currency"
             key={itemId}
             style={{
+                "--border-color" : `rgba${borderColor}`,
                 position: "absolute",
                 left: itemPositionLeft,
                 top: itemPositionTop,
                 textAlign: "center",
             }}
-            >
-            <img src={imageUrl} alt={itemId} width={50} />
-            <p style={{marginTop : -80 , marginLeft : -70}}><span>${itemPrice}</span>-
-            <span style={{ color: itemDailyChange >= 0 ? "green" : "red" }}>{itemDailyChange.toFixed(2)}%</span></p>
-            </div>
+        >
+        <img src={imageUrl} alt={itemId} width={50} />
         </div>
+        <div className= "priceWrapper" key={itemId} style={{
+            position: "absolute",
+            left: `${itemPositionLeft - 60}px`,
+            top: `${itemPositionTop - 15}px`
+        }}><p style={{fontWeight : "bold"}}><span style={{textShadow: "1px 1px 1px rgba(0, 0, 0, 0.5)"}}>${itemPrice}</span>
+            <span style={{ color: itemDailyChange >= 0 ? "green" : "red"}}>{itemDailyChange.toFixed(2)}%</span></p>
+        </div>   
+        </>
 
     )
 }

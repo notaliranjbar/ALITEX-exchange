@@ -1,22 +1,27 @@
 [
   {
     "id": "bitcoin",
-    "image": "/img/8369-bitcoin_102502.png"
+    "image": "/img/8369-bitcoin_102502.png",
+    "borderColor" : "(247, 147, 26 , 0.3)"
   },
   {
     "id": "ethereum",
-    "image": "/img/cdnlogo.com_ethereum-eth.png"
+    "image": "/img/cdnlogo.com_ethereum-eth.png",
+    "borderColor" : "(63, 112, 255 , 0.3)"
   },
   {
     "id": "dogecoin",
-    "image": "/img/multi-collateral-dai-dai-logo.png"
+    "image": "/img/multi-collateral-dai-dai-logo.png",
+    "borderColor" : "(255, 166, 0 , 0.2)"
   },
   {
     "id": "uniswap",
-    "image": "/img/images.png"
+    "image": "/img/images.png",
+    "borderColor" : "(255, 82, 147 , 0.7)"
   },
   {
     "id": "tether",
-    "image": "/img/Cjdowner-Cryptocurrency-Flat-Tether-USDT.512.png"
+    "image": "/img/Cjdowner-Cryptocurrency-Flat-Tether-USDT.512.png",
+    "borderColor" : "(22, 160, 133,  0.3)"
   }
 ]

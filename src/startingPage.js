@@ -4,23 +4,25 @@ import currenciesIcons from "./currencies.json";
 import CurrenciesIcons from "./currenciesIcons.js";
 const StartingPage= ()=> {
     const [items , setItems] = useState([])
+    const randomPositionGenerator = ()=>({
+        top: Math.floor(Math.random() * (window.innerHeight - 150)),
+        left: Math.floor(Math.random() * (window.innerWidth - 150)),
+    })
     useEffect(() =>{
-        const randomPositionGenerator = () =>({
-            top: Math.floor(Math.random() * (window.innerHeight - 150)),
-            left: Math.floor(Math.random() * (window.innerWidth - 150)),
-        })
+        const currenciesWithPosition = currenciesIcons.map(item => ({
+            ...item,
+            position:randomPositionGenerator()
+        }))
         const priceFetcher = async ()=>{
             try{
-                    const response = await fetch(
+                const response = await fetch(
                     "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,dogecoin,uniswap,tether&vs_currencies=usd&include_24hr_change=true"
                 )
                 const pricesData = await response.json();
-                const currenciesWithPrice = currenciesIcons.map(item => ({
+                const currenciesWithPrice = currenciesWithPosition.map(item => ({
                     ...item , 
                     price : pricesData[item.id]?.usd||0 ,
                     dailyChange : pricesData[item.id]?.usd_24h_change || 0,
-                    position : randomPositionGenerator(),
-
                 }))
                 setItems(currenciesWithPrice);
             }catch(err){
@@ -28,17 +30,15 @@ const StartingPage= ()=> {
             }
         }
         priceFetcher();
-            const intervalPriceFetcher = setInterval(priceFetcher , 60000)
-            return () => clearInterval(intervalPriceFetcher)
-        
-
+        const intervalPriceFetcher = setInterval(priceFetcher , 60000)
+        return () => clearInterval(intervalPriceFetcher)
     }, [])
     return (
         <div style={{ position: "relative", width: "100%", height: "100vh" }}>
         {items.map(item => (
             <CurrenciesIcons itemId = {item.id} imageUrl = {item.image} 
             itemPrice = {item.price} itemDailyChange = {item.dailyChange} itemPositionLeft = {item.position.left}
-            itemPositionTop = { item.position.top} />
+            itemPositionTop = { item.position.top} borderColor = {item.borderColor}/>
         ))}
         </div>
     );
