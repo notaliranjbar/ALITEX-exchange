@@ -5,6 +5,7 @@ import CurrenciesIcons from "./currenciesIcons.js";
 import Login from "./Login.js";
 import StartingHeader from "./StartingHeader.js";
 import StartingFeatures from "./StartingFeatures.js";
+// import StartingFooter from "./StartingFooter.js";
 const positionsList = [
 { top: 60, left: 870 },
 { top: 380, left: 900 },
@@ -16,7 +17,8 @@ const positionsList = [
 { top: 380, left: 600 },
 ];
 const StartingPage= ()=> {
-    const [items , setItems] = useState([])
+    const [items , setItems] = useState([]);
+    const [currenciesData, setCurrenciesData] = useState({});
     useEffect(() =>{
         const availablePositions = [...positionsList];
         const randomPositionGenerator = ()=>{
@@ -47,6 +49,11 @@ const StartingPage= ()=> {
                     dailyChange : pricesData[item.id]?.usd_24h_change || 0,
                 }))
             setItems(currenciesWithPrice);
+            const dataMap = {};
+            currenciesWithPrice.forEach(item => {
+            dataMap[item.id] = item;
+            });
+            setCurrenciesData(dataMap);
             }catch(err){
                 console.error("Failed to fetch prices:", err);
             }
@@ -74,9 +81,20 @@ const StartingPage= ()=> {
                 ))}
             <Login />
             </div>
-            <StartingFeatures/>
             <StartingHeader/>
-        </div>
+            <StartingFeatures
+                uniswapPrice={currenciesData["uniswap"]?.price ?? 0}
+                uniswapDailychange={currenciesData["uniswap"]?.dailyChange ?? 0}
+                tetherPrice={currenciesData["tether"]?.price ?? 0}
+                tetherDailychange={currenciesData["tether"]?.dailyChange ?? 0}
+                ethereumPrice={currenciesData["ethereum"]?.price ?? 0}
+                ethereumDailychange={currenciesData["ethereum"]?.dailyChange ?? 0}
+                polygonPrice={currenciesData["cardano"]?.price ?? 0}
+                polygonDailychange={currenciesData["cardano"]?.dailyChange ?? 0}
+                />
+            {/* <StartingFooter/> */}
+            </div>
+            
 
     );
 }
