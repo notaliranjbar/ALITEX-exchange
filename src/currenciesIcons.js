@@ -1,4 +1,4 @@
-const CurrenciesIcons = ({itemId , imageUrl , itemPrice ,itemDailyChange , itemPositionLeft , itemPositionTop , borderColor ,size})=>{
+const CurrenciesIcons = ({itemId , imageUrl , itemPrice ,itemDailyChange , itemPositionLeft , itemPositionTop , borderColor ,size , animationDelay})=>{
     return(
         <>
         <div  className="currency"
@@ -9,8 +9,9 @@ const CurrenciesIcons = ({itemId , imageUrl , itemPrice ,itemDailyChange , itemP
                 left: itemPositionLeft,
                 top: itemPositionTop,
                 textAlign: "center",
-                width : size , 
-                height : size
+                width : `${size}px`, 
+                height : `${size}px`,
+                animationDelay : `${animationDelay}s`
             }}
         >
         <img src={imageUrl} alt={itemId} width={size} />

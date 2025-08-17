@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import currenciesIcons from "./currencies.json";
 import CurrenciesIcons from "./currenciesIcons.js";
 import Login from "./Login.js";
+import StartingHeader from "./StartingHeader.js";
+import StartingFeatures from "./StartingFeatures.js";
 const positionsList = [
 { top: 60, left: 870 },
 { top: 380, left: 900 },
@@ -29,7 +31,9 @@ const StartingPage= ()=> {
         }
         const currenciesWithPosition = currenciesIcons.map(item => ({
             ...item,
-            position:randomPositionGenerator()
+            position:randomPositionGenerator(),
+            size: Math.floor(Math.random() * (110 - 60 + 1)) + 60 ,
+            animationDelay : -1 * (Math.floor(Math.random() * 20) + 1)
         }))
         const priceFetcher = async ()=>{
             try{
@@ -52,16 +56,27 @@ const StartingPage= ()=> {
         return () => clearInterval(intervalPriceFetcher)
     }, [])
     return (
-        <>
-            <div style={{ position: "relative", width: "100%", height: "100vh" }}>
-            {items.map(item => (
-                <CurrenciesIcons  key = {item.id}  itemId = {item.id} imageUrl = {item.image} 
-                itemPrice = {item.price} itemDailyChange = {item.dailyChange} itemPositionLeft = {item.position.left}
-                itemPositionTop = { item.position.top} borderColor = {item.borderColor} size = {(Math.floor(Math.random() * (110 - 60 + 1)) + 60)}/>
-            ))}
+        <div style={{width : "100%"}}>
+            <div style={{ position: "relative", width: "100%", height: "100vh", overflow: "hidden" , background :"linear-gradient(to bottom, rgba(0, 199, 151, 0.25) 10%, rgba(20, 20, 20, 0.9) 90%)"}}>
+                {items.map(item => (
+                    <CurrenciesIcons
+                    key={item.id}
+                    itemId={item.id}
+                    imageUrl={item.image}
+                    itemPrice={item.price}
+                    itemDailyChange={item.dailyChange}
+                    itemPositionLeft={item.position.left}
+                    itemPositionTop={item.position.top}
+                    borderColor={item.borderColor}
+                    size={item.size}
+                    animationDelay={item.animationDelay}
+                    />
+                ))}
+            <Login />
             </div>
-            <Login/>
-        </>
+            <StartingFeatures/>
+            <StartingHeader/>
+        </div>
 
     );
 }

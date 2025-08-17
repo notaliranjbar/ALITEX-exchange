@@ -8,21 +8,26 @@
 
 html {
   font-size: 16px;
+  height: 100%;
 }
-
 body {
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  display: flex;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  height: 100%;
+  display: block;
   background-color: #fff;
 }
-
+body::-webkit-scrollbar {
+  width: 0;  
+  background: transparent; 
+}
 #root {
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  min-height: 100%;
+  display: block;  
 } 
 .currency {
     position: absolute;
@@ -188,7 +193,6 @@ body {
 }
 
 .login-form {
-  background: white;
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.3);
@@ -196,6 +200,9 @@ body {
   text-align: center;
   align-items: center;
   pointer-events: auto;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 200, 143, 0.3); 
 }
 .logInInformations {
   width: 100%; 
@@ -220,7 +227,7 @@ body {
   font-size: 1rem;    
   font-weight: bold;       
   color: #fff;            
-  background: #0033AD;    
+  background: #1b9a76;    
   border: none;         
   border-radius: 12px;     
   cursor: pointer;       
@@ -229,16 +236,16 @@ body {
 }
 
 .logInButton:hover {
-  background: #0055ff;    
+  background:  #33b291;    
   transform: scale(1.05);   
 }
 
 .logInButton:active {
   transform: scale(0.98);  
-  background: #002080;
+  background-color: #158060;  
 }
 .loginTitle {
-  color: #4dafff; 
+  color: #00e0a0; 
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 1rem;
@@ -246,10 +253,12 @@ body {
   text-shadow: 0 2px 8px rgba(77, 175, 255, 0.6);
 }
 .loginHeader{
-  color: #4dafff; /* light blue */
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
   margin-bottom: 1rem;
   text-align: center;
+  color: #00c88f;
+  text-shadow: 2px 2px 6px rgba(255, 255, 255, 0.9);
 }
 
 .loginFooter {
@@ -261,9 +270,11 @@ body {
 }
 
 .loginFooter a {
-  color: #4dafff;
+  color: rgba(230, 240, 255, 0.9);;
   text-decoration: none;
   font-weight: bold;
+  color: #518677;
+  text-shadow: 1px 1px 1px rgba(157, 230, 210, 0.7);
 }
 
 .loginFooter a:hover {
@@ -281,4 +292,143 @@ body {
 }
 .loginDiscription span{
   display: block;
+}
+.header{
+  position: fixed;
+  padding: 0;
+  top: 0;
+  width: 100%;
+  height: 10%;
+  transition: background-color 0.3s ease;
+  background-color: transparent;
+  z-index: 7;      
+  display: flex;
+  align-items: center;
+}
+header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;  
+  background-color: #00C797; 
+  box-shadow: 0 0 6px 2px #00C797;
+  opacity: 0;
+}
+.header nav{
+  display: flex;         
+  flex-direction: row;     
+}
+.header.scrolled {
+  background-color: #2d2e2d;
+}
+.header.scrolled::after{
+  opacity: 1;
+}
+.alitexText {
+  font-size: 1.2rem;        
+  margin-top: 0.8%;
+  font-weight: bold;   
+  color: #59c1a7; 
+  letter-spacing: 1px;      
+  text-shadow: 1px 1px 4px rgba(230, 240, 255, 0.9); 
+  transition: color 0.3s ease, 
+}
+.header h2{
+  margin-left: 6%;
+  font-size: 1.1rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1%;
+  color: #adadad;
+  text-shadow: 1px 1px 4px rgba(230, 240, 255, 0.9); 
+  transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.header h2:hover {
+  color: #3fcf97;
+  text-shadow: 2px 2px 8px rgba(80, 240, 180, 0.9);
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.searchBar {
+  display: flex;
+  align-items: center;
+  position: relative;
+  left: 33%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 25px;
+  padding: 0.5rem 1rem;
+  width: 40%;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.searchBar:hover {
+  background-color: rgba(255, 255, 255, 0.35); 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+.searchInput {
+  padding-left: 5%;
+  border: none;
+  outline: none;
+  background: transparent;
+  flex-grow: 1;
+  font-size: 1rem;
+  color: #59c1a7;
+}
+.searchIcon {
+  width: 25px; 
+  height: 25px;
+  object-fit: contain;
+}
+.searchInput::placeholder {
+  color: #b3b3b3;
+  text-shadow: 0.2px 0.2px 1px rgba(132, 136, 141, 0.9);
+  transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+}
+.searchBar:hover .searchInput::placeholder {
+  color: #3fcf97;
+  text-shadow: 2px 2px 8px rgba(80, 240, 180, 0.9);
+  transform: scale(1.01);
+}
+.headerButton{
+  position: relative;
+  left: 60%;
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 15px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  color: #fff;
+}
+#guideBtn {
+  background-color: rgba(80, 240, 180, 0.8);
+  margin-right: 20px;
+  margin-left: 20%;
+}
+#guideBtn:hover {
+  background-color: rgba(80, 240, 180, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+#guideBtn:active {
+  background-color: rgba(63, 207, 151, 1);
+  transform: translateY(1px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+#signupBtn {
+  background-color: rgba(63, 207, 151, 0.9);
+}
+#signupBtn:hover {
+  background-color: rgba(80, 240, 180, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+#signupBtn:active {
+  background-color: rgba(50, 170, 120, 1);
+  transform: translateY(1px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
 }
