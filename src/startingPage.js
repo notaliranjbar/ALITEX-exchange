@@ -5,7 +5,7 @@ import CurrenciesIcons from "./currenciesIcons.js";
 import Login from "./Login.js";
 import StartingHeader from "./StartingHeader.js";
 import StartingFeatures from "./StartingFeatures.js";
-// import StartingFooter from "./StartingFooter.js";
+import StartingFooter from "./StartingFooter.js";
 const positionsList = [
 { top: 60, left: 870 },
 { top: 380, left: 900 },
@@ -92,7 +92,7 @@ const StartingPage= ()=> {
                 polygonPrice={currenciesData["cardano"]?.price ?? 0}
                 polygonDailychange={currenciesData["cardano"]?.dailyChange ?? 0}
                 />
-            {/* <StartingFooter/> */}
+            <StartingFooter/>
             </div>
             
 

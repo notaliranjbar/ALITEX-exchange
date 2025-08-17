@@ -7,8 +7,8 @@ const StartingFeatures = ({uniswapPrice , uniswapDailychange , tetherPrice , tet
         <>
             <div className= "features" style={{ minHeight: "170vh", background: "#2b2b2b" }}>
                     <h2 style={{ textAlign: "center", padding: "2rem" }}>Exchange your dreams</h2>
-                    <div class="container">
-                        <div class="box pink">
+                    <div className="container">
+                        <div className="box pink">
                             <LaptopIcon className= "laptopIcon" style= {{fill:"rgba(255, 76, 163, 1)" , width: "20px"}}/>
                             <h1 className="webAppTitle">Web App</h1>
                             <h2>Permissionless trades.</h2>
@@ -53,7 +53,7 @@ const StartingFeatures = ({uniswapPrice , uniswapDailychange , tetherPrice , tet
 
 
                         </div>
-                        <div class="box green">
+                        <div className="box green">
                             <h2>Leverage trading with multiplier.</h2>
                             <h3 className="h2Discription">On Nobitex, Iran’s only two-way trading platform, you have the unique opportunity to profit
                                 not only when cryptocurrency prices rise but also when they fall. This means you can take advantage of both bullish 
@@ -72,8 +72,8 @@ const StartingFeatures = ({uniswapPrice , uniswapDailychange , tetherPrice , tet
                     </div>
             </div>
             <div className= "features" style={{ minHeight: "150vh", background: "#2b2b2b" }}>
-                    <div class="container2">
-                        <div class="box orange">
+                    <div className="container2">
+                        <div className="box orange">
                             <LightningIcon className= "lightningIcon" style= {{fill:"rgba(255, 77, 0, 0.6)"}}/>
                             <h2>Smarter swaps, zero friction.</h2>
                             <h3 className="h2Discription">On Alitex, speed is everything. Our lightning-fast order processing ensures instant confirmations, so buying and selling 
@@ -85,7 +85,7 @@ const StartingFeatures = ({uniswapPrice , uniswapDailychange , tetherPrice , tet
                             </div>
 
                         </div>
-                        <div class="box white">
+                        <div className="box white">
                             <h2>Wallets</h2>
                             <h3 className="h2Discription">Alitex provides secure and user-friendly wallets to store all your cryptocurrencies
                                  in one place. Whether you’re a beginner or an experienced trader, Alitex wallets are designed
