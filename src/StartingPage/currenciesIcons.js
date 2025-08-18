@@ -18,6 +18,7 @@ const CurrenciesIcons = ({itemId , imageUrl , itemPrice ,itemDailyChange , itemP
         </div>
         <div className= "priceWrapper" key={itemId} style={{
             position: "absolute",
+            animationDelay : `${animationDelay}s`,
             left: `${itemPositionLeft - 60}px`,
             top: `${itemPositionTop - 15}px`
         }}><p style={{fontWeight : "bold"}}><span style={{textShadow: "1px 1px 1px rgba(0, 0, 0, 0.5)"}}>${itemPrice}</span>

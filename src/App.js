@@ -1,4 +1,4 @@
-import StartingPage from "./startingPage.js";
+import StartingPage from "./StartingPage/startingPage.js";
 function App() {
   return (
     <StartingPage/>
