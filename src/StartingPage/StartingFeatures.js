@@ -1,6 +1,7 @@
 import { ReactComponent as LaptopIcon } from "./Icons/laptop-icon.svg";
 import { ReactComponent as LightningIcon } from "./Icons/spark-icon.svg";
 import { ReactComponent as WalletIcon } from "./Icons/wallet-icon.svg";
+import { ReactComponent as StockIcon } from "./Icons/increase-up-profit-icon.svg";
 const StartingFeatures = ({uniswapPrice , uniswapDailychange , tetherPrice , tetherDailychange , ethereumPrice , ethereumDailychange , polygonPrice ,polygonDailyChange}) => {
     const safe = (value) => Number(value ?? 0);
     return(
@@ -53,7 +54,8 @@ const StartingFeatures = ({uniswapPrice , uniswapDailychange , tetherPrice , tet
 
 
                         </div>
-                        <div className="box green fade-in-up">
+                        <div className="box green fade-in-up" style={{overflow : "hidden"}}>
+                            <StockIcon className="stockIcon" style= {{fill:"rgba(63, 207, 151, 0.4)"}}/>
                             <h2>Leverage trading with multiplier.</h2>
                             <h3 className="h2Discription">On Nobitex, Iran’s only two-way trading platform, you have the unique opportunity to profit
                                 not only when cryptocurrency prices rise but also when they fall. This means you can take advantage of both bullish 
@@ -81,7 +83,7 @@ const StartingFeatures = ({uniswapPrice , uniswapDailychange , tetherPrice , tet
                                  edge you need to stay ahead in the crypto world.
                             </h3>
                             <div className="exploreTokenso">
-                                Explore tokens
+                                Trade now
                             </div>
 
                         </div>

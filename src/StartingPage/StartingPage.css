@@ -181,6 +181,19 @@ h1{
     transform: translateY(0) ;
   }
 }
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-up {
+  animation: fadeUp 0.5s ease-out forwards;
+}
 /* LOGIN FORM PART */
 .login-overlay {
   position: absolute;
@@ -783,6 +796,16 @@ header::after {
   height: 150px;
   opacity: 0.4;
 }
+.stockIcon{
+  position: absolute;
+  transform: rotate(-20deg);
+  margin-left: -60px;
+  margin-top: 200px;
+  width: 600px;
+  height: 600px;
+  opacity: 0.4;
+  filter: blur(12px);
+}
 /* STARTINGPAGE FOOTERS  */
 .footer {
   width: 100%;
@@ -819,6 +842,16 @@ header::after {
   transform: scale(1.2);
   color: rgba(128, 128, 128, 1);
   fill: grey;
+}
+.linkedin:hover {
+  transform: scale(1.2);
+  color: rgba(128, 128, 128, 1);
+  fill: rgb(10, 102, 194);
+}
+.github:hover {
+  transform: scale(1.2);
+  color: rgba(128, 128, 128, 1);
+  fill: rgb(46, 160, 67);
 }
 .footer-icon:active {
   transform: scale(1.1);
