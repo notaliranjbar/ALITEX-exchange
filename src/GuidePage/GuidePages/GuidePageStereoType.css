@@ -1,0 +1,41 @@
+.guide-stereotype-container{
+      background: linear-gradient(135deg, rgb(22, 121, 103) 40%, #2e2e2e 100%);
+
+}
+.guide-stereotype {
+    min-height: 100vh;
+    position: relative;
+    width: 100%;
+    color: white;
+    padding: 5vh 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.guide-stereotype-title {
+    margin-top: 10vh;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    width: 90%;
+    text-shadow: 0 3px 6px rgba(0, 200, 143, 0.8),
+                0 6px 15px rgba(0, 0, 0, 0.6);
+}
+
+.guide-stereotype-description {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  width: 90%;
+  color: #e0e0e0;
+}
+.guide-icon{
+    position: absolute;
+    opacity: 0.5;
+    width: 300px;
+    height: 300px;
+    top: 60vh;
+    left: 120vh;
+    filter: blur(9px);
+}

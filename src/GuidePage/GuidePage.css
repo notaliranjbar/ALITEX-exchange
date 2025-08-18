@@ -1,0 +1,77 @@
+.guide-page {
+    background: radial-gradient(
+        circle at center,
+        rgb(22, 121, 103) 30%,  /* green color */
+        #2e2e2e 100%            /* dark gray */
+    );
+}
+
+.guide-page-container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background-color: transparent;
+}
+.guide-title {
+    position: relative;
+    margin-top: 10vh;
+    font-size: 3rem;
+    color: white;
+    margin-bottom: 3rem;
+    text-align: center;
+    text-shadow: 
+    0 2px 5px rgba(0, 0, 0, 0.7),
+    0 6px 15px rgba(0, 200, 143, 0.6); 
+}
+.guide-discription {
+  font-size: 1.8rem; 
+  color: white;   
+  text-align: center;     
+  margin-top: -3vh;
+  margin-bottom: 2rem;
+  text-shadow: 
+    0 2px 5px rgba(0, 0, 0, 0.7),
+    0 6px 15px rgba(0, 200, 143, 0.6); 
+}
+.guide-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.guide-box {
+  height: 15vh;
+  width: 35vw;
+  min-width: 200px;
+  background-color: #2fbc82af;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.guide-box:hover {
+  transform: translateY(-2px) scale(1.02);
+  background-color: rgba(0,200,143,0.4);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.guide-box:active {
+  transform: translateY(2px) scale(0.98);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+.guide-box-text{
+    text-shadow: 
+    0 2px 5px rgba(0, 0, 0, 0.7),
+    0 6px 15px rgba(0, 200, 143, 0.6); 
+}

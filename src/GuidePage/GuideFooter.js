@@ -2,7 +2,7 @@
 import { ReactComponent as GithubIcon } from "./Icons/github-icon.svg";
 import { ReactComponent as LinkedinIcon } from "./Icons/linkedin-square-icon.svg";
 import { ReactComponent as XIcon } from "./Icons/x-social-media-black-icon.svg";
-const SignupFooter = () => {
+const GuideFooter = () => {
   return (
     <footer className="footer signup-footer" style={{backgroundColor : "transparent"}}>
       <div className="footerContainer" >
@@ -18,11 +18,11 @@ const SignupFooter = () => {
           </a>
         </div>
         <div className="footer-right">
-          <a href="/guide">Help Center</a>
+          <a href="/">Homepage</a>
         </div>
       </div>
     </footer>
   );
 };
 
-export default SignupFooter;
+export default GuideFooter;

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import {Link} from "react-router-dom"
-const StartingHeader= () => {
+const GuideHeader= () => {
     const [scrolled, setScrolled] = useState(false);
     return (
         <header className={`header scrolled`}>
@@ -14,7 +14,7 @@ const StartingHeader= () => {
             </h2>
             <h2>
                 <Link to="/guide" style={{ color: "inherit",textDecoration: "none",cursor: "pointer"}}>
-                            Guide
+                            Back to guide page
                 </Link>
             </h2>
         </nav>
@@ -23,4 +23,4 @@ const StartingHeader= () => {
     );
 };
 
-export default StartingHeader;
+export default GuideHeader;
