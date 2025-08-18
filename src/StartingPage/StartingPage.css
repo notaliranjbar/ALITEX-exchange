@@ -810,8 +810,6 @@ header::after {
 .footer {
   width: 100%;
   padding: 1.5rem 2rem;
-  background-color: #1f1f1f;
-  color: #ffffff;
   font-family: Arial, sans-serif;
 }
 .footerContainer {
