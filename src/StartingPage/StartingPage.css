@@ -198,6 +198,16 @@ h1{
   75% { transform: translateX(-3px); }
   100% { transform: translateX(0); }
 }
+@keyframes flashRed {
+  0% {
+    border-color: red;
+    background-color: #ffe6e6;
+  }
+  100% {
+    border-color: #ccc;
+    background-color: rgba(255, 255, 255, 0.5)
+  }
+}
 .fade-up {
   animation: fadeUp 0.5s ease-out forwards;
   opacity: 0;
@@ -239,6 +249,7 @@ h1{
   outline: none;
   transition: all 0.3s ease;
   box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .logInInformations:focus {
@@ -269,10 +280,8 @@ h1{
   transform: scale(0.98);  
   background-color: #158060;  
 }
-.logInInformations + .invalid {
-  border: 1px solid red;
-  background-color: #ffe6e6;
-  animation: shake 0.2s;
+.logInInformations.invalid {
+  animation: shake 0.2s , flashRed 0.8s;
 }
 .login-form .err{
     color: red;
@@ -390,7 +399,7 @@ header::after {
   transform: scale(1.1);
   cursor: pointer;
 }
-.searchBar {
+.starting-page-searchBar {
   display: flex;
   align-items: center;
   position: relative;
@@ -402,11 +411,11 @@ header::after {
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.searchBar:hover {
+.starting-page-searchBar:hover {
   background-color: rgba(255, 255, 255, 0.35); 
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
 }
-.searchInput {
+.starting-page-searchInput {
   padding-left: 5%;
   border: none;
   outline: none;
@@ -415,17 +424,17 @@ header::after {
   font-size: 1rem;
   color: #59c1a7;
 }
-.searchIcon {
+.starting-page-searchIcon {
   width: 25px; 
   height: 25px;
   object-fit: contain;
 }
-.searchInput::placeholder {
+.starting-page-searchInput::placeholder {
   color: #b3b3b3;
   text-shadow: 0.2px 0.2px 1px rgba(132, 136, 141, 0.9);
   transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
 }
-.searchBar:hover .searchInput::placeholder {
+.starting-page-searchBar:hover .starting-page-searchInput::placeholder {
   color: #3fcf97;
   text-shadow: 2px 2px 8px rgba(80, 240, 180, 0.9);
   transform: scale(1.01);

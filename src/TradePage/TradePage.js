@@ -1,9 +1,9 @@
+import CurrencySearch from "./Searchbar";
 const TradePage = () =>{
     return(
         <div>
-            TradePage
+            <CurrencySearch/>
         </div>
-
     )
 }
 export default TradePage;

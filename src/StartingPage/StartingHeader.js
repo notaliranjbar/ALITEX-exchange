@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Searchbar from "../TradePage/Searchbar";
 const StartingHeader= () => {
     const [scrolled, setScrolled] = useState(false);
     useEffect(() => {
@@ -26,14 +27,7 @@ const StartingHeader= () => {
                             Wallet
                 </Link>
             </h2>
-            <div className="searchBar">
-                <img src="/img/search-icon-png-9969.png" className="searchIcon"></img>
-                <input 
-                    type="text" 
-                    placeholder="Search for Coins / Tokens" 
-                    className="searchInput" 
-                />
-            </div>
+            <Searchbar/>
             <button className="headerButton" id="guideBtn" onClick={() => navigate("/guide")} >
                 Guide
             </button>

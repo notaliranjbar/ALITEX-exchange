@@ -1,0 +1,102 @@
+.currency-search {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  position: relative;
+  left: 33%;
+  background-color: #bff1e5;
+  border-radius: 25px;
+  padding: 0.5rem 1rem;
+  width: 40%;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.search-bar:hover {
+  background-color: rgba(255, 255, 255, 0.35); 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+.search-input {
+  padding-left: 5%;
+  border: none;
+  outline: none;
+  background: transparent;
+  flex-grow: 1;
+  font-size: 1rem;
+  color: #555555;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+
+}
+.search-bar:focus {
+  border-color: #1ddbb7;
+  box-shadow: 0 0 6px rgba(29, 219, 183, 0.4);
+  background: #fff;
+}
+.search-icon {
+  width: 25px; 
+  height: 25px;
+  object-fit: contain;
+}
+.search-input::placeholder {
+  color: #b3b3b3;
+  text-shadow: 0.2px 0.2px 1px rgba(132, 136, 141, 0.9);
+  transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+}
+.search-bar:hover .search-input::placeholder {
+  color: #3fcf97;
+  text-shadow: 2px 2px 8px rgba(80, 240, 180, 0.9);
+  transform: scale(1.01);
+}
+.popup {
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 100%;
+  background-color: #b9e9dd;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  padding: 6px 0;
+  z-index: 10;
+  animation: fadeIn 0.15s ease-in;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.results {
+  max-height: 220px;
+  overflow-y: auto;
+  background-color: #b9e9dd;
+}
+.result-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-size: 1rem;
+    color: #555555;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+
+}
+.result-item:hover {
+  background-color: #77e3c8;
+  border-radius: 20px;
+}
+.result-item img {
+  width: 22px;
+  height: 22px;
+}
+.no-results {
+  color: #888;
+  font-size: 13px;
+  text-align: center;
+  padding: 12px;
+  background-color: #b9e9dd;
+}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +69,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+=======
+# ALITEX-exchange
+A simple and interactive currency exchange platform built with React and JavaScript. Users can view current currency rates, simulate buying and selling. This project is a work-in-progress, designed to practice frontend development, state management, and responsive design. nice project to interact with real world
+>>>>>>> da7f887c410d90df4307934ee62e80653cc205be

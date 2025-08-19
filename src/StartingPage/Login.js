@@ -5,22 +5,39 @@ const Login = () => {
     const [username, setUsername] = useState("");
     const [usernameErr , setUsernameErr] = useState("none");
     const [passErr , setPassErr] = useState("none");
-    const [submitted, setSubmitted] = useState(false);
+    const [submitted , setSubmitted] = useState(false)
+    const [usernameInvalid, setUsernameInvalid] = useState(false);
+    const [passWordInvalid, setPasswordInvalid] = useState(false);
+    let hasErr = false;
     const handleSubmit = async(e) =>{
         e.preventDefault()
         setSubmitted(true);
-        if (!username|| !password) return;
+        if(!password){
+            setPasswordInvalid(false)
+            setTimeout(() => {
+                setPasswordInvalid(true);
+            }, 10);
+            hasErr = true
+        }
+        if(!username){
+            setUsernameInvalid(false)
+            setTimeout(() => {
+                setUsernameInvalid(true);
+            }, 10);
+            hasErr = true
+        }
+        if(hasErr) return;
         try{
             const response = await axios.get("http://localhost:5000/users");
             const users = response.data;
-            if(!(users.some(user => user.username === username))) {
+            if(username && !(users.some(user => user.username === username))) {
                 setUsernameErr("block");
                 return;
             } else {
                     setUsernameErr("none");
             }
             const user = users.find((user) => (user.username === username));
-            if(!(user.password === password)){
+            if(password && !(user.password === password)){
                 setPassErr("block")
                 return;
             }else{
@@ -38,14 +55,18 @@ const Login = () => {
             <form className="login-form fade-up" style={{animationDelay:"0.2s"}}  onSubmit={handleSubmit}>
                 <h2 className="loginTitle">Log in</h2>
                 <input type="text" placeholder="Username"
-                    onChange={(e) => setUsername(e.target.value)}
+                    onChange={(e) => {setUsername(e.target.value);
+                                    setUsernameInvalid(false);
+                                    setUsernameErr("none");}}
                     value={username}
-                    className={submitted && !username ? "logInInformations invalid" : "logInInformations"}/>
+                    className={`logInInformations ${usernameInvalid? "invalid" : ""}`}/>
                 <h2 className="err" style={{display: usernameErr}}>This username doesnt exist</h2>
                 <input type="password" placeholder="Password" 
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => {setPassword(e.target.value);
+                                    setPasswordInvalid(false);
+                                    setPasswordInvalid("none");}}
                     value={password}
-                    className={submitted && !password ? "logInInformations invalid" : "logInInformations"}/>
+                    className={`logInInformations ${passWordInvalid ? "invalid" : ""}`}/>
                 <h2 className="err" style={{display: passErr}}>The password is incorrect</h2>
                 <button type="submit"  className="logInButton">Next</button>
             </form>
