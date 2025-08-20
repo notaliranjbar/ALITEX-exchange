@@ -141,15 +141,25 @@ const TradePage = () => {
 
         </div>
         <div className="swap-button">
-            <button onClick={() => {
-            if (leftCurrencyName && rightCurrencyName && rightAmount) {
-                setShowSwapPopup(true);
-            }
-            }}>
+            <button
+                onClick={() => {
+                if (leftCurrencyName && rightCurrencyName && rightAmount) {
+                    // Ensure the rightAmount does not exceed ownedAmount
+                    if (rightCurrency && rightCurrency.ownedAmount) {
+                    if (rightAmount > rightCurrency.ownedAmount) {
+                        setRightAmount(rightCurrency.ownedAmount);
+                        setRightAmountDollar((rightCurrency.ownedAmount * rightPrice).toFixed(2));
+                    }
+                    }
+
+                    setShowSwapPopup(true);
+                }
+                }}
+            >
                 <ArrowIcon className="swap-icon" />
-            
             </button>
         </div>
+
         <div className="trade-field right-field">
             <Searchbar
             currencies={ownedCurrencies}
