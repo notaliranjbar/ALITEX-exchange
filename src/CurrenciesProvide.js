@@ -3,7 +3,7 @@ const CurrenciesContext = createContext();
 
 export const CurrenciesProvider = ({ children }) => {
   const [ownedCurrencies, setOwnedCurrencies] = useState([
-    { name: "tether", amount : 1000 },
+    { name: "tether", ownedAmount : 1000 , icon : "/Icons/tether-usdt-icon.svg"},
   ]);
 
   return (

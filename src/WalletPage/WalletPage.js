@@ -22,7 +22,7 @@ const WalletPage = () => {
                 />
                 <div className="wallet-info">
                     <p className="wallet-name">{currency.name}</p>
-                    <p className="wallet-amount">Amount: {currency.amount}</p>
+                    <p className="wallet-amount">Amount: {(currency.ownedAmount.toFixed(4))}</p>
                     <p className="wallet-price">Price: ${currency.price}</p>
                 </div>
                 <button className="wallet-item-trade">
