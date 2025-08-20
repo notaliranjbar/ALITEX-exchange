@@ -2,20 +2,10 @@ import React from "react";
 import "./WalletPage.css"; 
 import WalletPageHeader from "./WalletPageHeader";
 import WalletPageFooter from "./WalletPageFooter";
-const ownedCurrencies =[
-  { name: "Bitcoin", amount: 2.34, price: 67000 },
-  { name: "Ethereum", amount: 10, price: 3500 },
-  { name: "Tether", amount: 5000, price: 1 },
-  { name: "Uniswap", amount: 120, price: 6.5 },
-  { name: "Litecoin", amount: 50, price: 180 },
-  { name: "Ripple", amount: 2000, price: 0.55 },
-  { name: "Cardano", amount: 3500, price: 0.40 },
-  { name: "Solana", amount: 75, price: 140 },
-  { name: "Polkadot", amount: 300, price: 7.2 },
-  { name: "Dogecoin", amount: 15000, price: 0.08 }
-];
+import { useCurrencies } from "../CurrenciesProvide";
 
 const WalletPage = () => {
+  const { ownedCurrencies, setOwnedCurrencies } = useCurrencies();
   return (
     <div className="wallet-page" style={{backgroundColor : "#2d2e2d"}}>
         <WalletPageHeader/>

@@ -14,6 +14,7 @@ function SignupPage() {
   const [usernameExist , setUsernameExist] = useState(false)
   const [phoneExists , setphoneExists] = useState(false)
   const [submitted, setSubmitted] = useState(false);
+  const [currencies , setCurrencies] = useState([{name : "tether" , amount : 1000}])
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitted(true);
@@ -39,7 +40,7 @@ function SignupPage() {
       return;
     }
     if (!usernameExist && !phoneExists){
-      const newUser = { username, phone, password };
+      const newUser = { username, phone, password , currencies};
       try {
         await axios.post("http://localhost:5000/users", newUser);
       } catch (error) {

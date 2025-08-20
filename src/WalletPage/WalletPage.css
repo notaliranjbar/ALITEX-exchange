@@ -8,6 +8,7 @@
   margin: 20px auto;
   color: #fff;
   top: 12vh;
+  min-height: 100vh;
 }
 .wallet-title {
   font-size: 1.75rem;
