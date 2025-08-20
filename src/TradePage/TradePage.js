@@ -54,17 +54,15 @@ const TradePage = () => {
     }
     }, [rightCurrencyName]);
    useEffect(() => {
-        const rightCurrency = currencies.find(c => c.name === rightCurrencyName);
-        const leftCurrency = currencies.find(c => c.name === leftCurrencyName);
 
-        if (rightCurrency && leftCurrency) {
-            setRightPrice(rightCurrency.price);
-            setLeftPrice(leftCurrency.price);
+    if (rightCurrency && leftCurrency) {
+        setRightPrice(rightCurrency.price);
+        setLeftPrice(leftCurrency.price);
 
-            const newRate = rightCurrency.price / leftCurrency.price;
-            setRate(newRate);
-            setCalculatedLeftAmount(rightAmount * newRate);
-        }
+        const newRate = rightCurrency.price / leftCurrency.price;
+        setRate(newRate);
+        setCalculatedLeftAmount(rightAmount * newRate);
+    }
     }, [rightCurrencyName, leftCurrencyName, rightAmount]);
     const leftCurrency = currencies.find(c => c.name === leftCurrencyName);
     const rightCurrency = currencies.find(c => c.name === rightCurrencyName);
@@ -110,7 +108,7 @@ const TradePage = () => {
             )}
         <div className="trade-info">
             <p>Price: {leftPrice !== null ? leftPrice.toFixed(2) : ""}</p>
-            <p>Rate: {rate !== null ? rate.toFixed(4) : ""}</p>
+            <p>Rate: {rate !== null ? rate.toFixed(2) : ""}</p>
             <p>
                  Amount: {rightAmount !== "" && calculatedLeftAmount !== null ? calculatedLeftAmount.toFixed(4) : ""}
             </p>
@@ -153,7 +151,6 @@ const TradePage = () => {
                     setRightAmount(val && rightPrice ? val / rightPrice : "");
                     }}
                     min="0"
-                    step="any"
                     className="trade-amount"
                 />
             </p>
@@ -169,7 +166,6 @@ const TradePage = () => {
                     setRightAmountDollar(val && rightPrice ? val * rightPrice : "");
                 }}
                 min="0"
-                step="any"
                 className="trade-amount"
                 />
             </p>
