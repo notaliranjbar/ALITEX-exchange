@@ -1,0 +1,351 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  height: 100%;
+  line-height: 1.6;
+  position: relative;
+}
+.lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  margin: auto;
+  width: 90vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.line {
+  position: relative;
+  width: 3px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.line::after {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 15vh;
+  width: 100%;
+  top: -50%;
+  left: 0;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%);
+  animation: drop 14s 0s infinite;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+}
+.line::after{
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #59c1a7 75%, #59c1a7 100%);
+}
+.line:nth-child(1)::after {
+  animation-delay: 0.5s;
+}
+
+.line:nth-child(2)::after {
+  animation-delay: 1s;
+}
+
+.line:nth-child(3)::after {
+  animation-delay: 1.5s;
+}
+
+.line:nth-child(4)::after {
+  animation-delay: 2s;
+}
+
+.line:nth-child(5)::after {
+  animation-delay: 2.5s;
+}
+
+.line:nth-child(6)::after {
+  animation-delay: 3s;
+}
+
+.line:nth-child(7)::after {
+  animation-delay: 3.5s;
+}
+
+.line:nth-child(8)::after {
+  animation-delay: 4s;
+}
+
+.line:nth-child(9)::after {
+  animation-delay: 4.5s;
+}
+
+.line:nth-child(10)::after {
+  animation-delay: 5.5s;
+}
+
+.line:nth-child(11)::after {
+  animation-delay: 6s;
+}
+
+.line:nth-child(12)::after {
+  animation-delay: 6.5s;
+}
+
+.line:nth-child(13)::after {
+  animation-delay: 7s;
+}
+
+.line:nth-child(14)::after {
+  animation-delay: 7.5s;
+}
+
+.line:nth-child(15)::after {
+  animation-delay: 8s;
+}
+
+.line:nth-child(16)::after {
+  animation-delay: 8.5s;
+}
+.line:nth-child(17)::after {
+  animation-delay: 9s;
+}
+.line:nth-child(18)::after {
+  animation-delay: 9.5s;
+}
+.line:nth-child(19)::after {
+  animation-delay: 10s;
+}
+.line:nth-child(20)::after {
+  animation-delay: 10.5s;
+}
+
+@keyframes drop {
+  0% {
+    top: -50%;
+  }
+  100% {
+    top: 110%;
+  }
+}
+
+.trade-page{
+  background :linear-gradient(to bottom, rgba(0, 199, 151, 0.25) 10%, rgba(20, 20, 20, 0.9) 90%)
+}
+.trade-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 90%;
+  margin: 2rem auto;
+  gap: 0rem;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+}
+
+.trade-field {
+  margin-top: 15vh;
+  width: 40%;
+  height: 60vh;
+  border-radius: 25px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: rgba(43, 43, 43, 1) !important;
+  z-index: 3;
+}
+
+.trade-field:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.trade-info {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  font-size: 1rem;
+  color: #d3d3d3;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.trade-info p {
+  margin: 0;
+  padding: 0.3rem 0.5rem;
+  background-color: rgba(132, 136, 141, 0.9);
+  border-radius: 12px;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+  color: #3fcf97;
+  text-shadow: 2px 2px 8px rgba(80, 240, 180, 0.4);
+}
+
+.left-field {
+  background-color: #b9f0e0;
+}
+
+.right-field {
+  background-color: #bff1e5;
+}
+
+/* Make Searchbar inside TradePage full width */
+.trade-field .search-bar {
+  width: 100%;
+  left: 0; /* reset left offset from original */
+  margin-bottom: 1.5rem;
+}
+
+/* Input inside TradePage slightly bigger */
+.trade-field .search-input {
+  font-size: 1.05rem;
+  padding: 0.6rem 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .trade-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .trade-field {
+    width: 80%;
+    margin-bottom: 2rem;
+  }
+}
+/* Amount input styling */
+.trade-amount {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: #3fcf97;
+  background-color: rgba(85, 87, 90, 0.9);
+  text-shadow: 2px 2px 8px rgba(80, 240, 180, 0.4);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.trade-amount:focus {
+  background-color: #ffffff;
+  box-shadow: 0 0 6px rgba(29, 219, 183, 0.4);
+}
+.currency-name {
+  font-weight: bold;
+  font-size: 1rem;
+  color: white; /* adjust depending on background */
+}
+.selected-currency {
+  display: flex;
+  align-items: center;   /* vertically align logo and text */
+  gap: 0.5rem;           /* spacing between logo and name */
+  margin-bottom: 1rem;
+}
+
+.currency-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%; /* makes it round if the logo is square */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); /* soft shadow */
+  background-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.currency-name {
+  text-shadow: 2px 2px 8px rgba(80, 240, 180, 0.4);
+  margin-left: 1rem;
+  font-weight: bold;
+  font-size: 2rem;
+  color: white; 
+}
+.swap-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40vh;
+  z-index: 10;
+}
+
+.swap-button button {
+  background: #1ddbb886;
+  color: white;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 30%;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.swap-button button:hover {
+  transform: scale(1.1) ;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+.swap-icon {
+  width: 24px; /* adjust size */
+  height: 24px;
+  margin-right: 5px;
+  margin-top: 5px;
+  fill: #dafff1;
+}
+.swap-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.swap-popup {
+  background: #1f1f1f;
+  padding: 2rem;
+  border-radius: 15px;
+  color: #fff;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.swap-popup-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1.5rem;
+}
+
+.swap-popup-buttons button {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.swap-popup-buttons button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.yes-btn {
+  background-color: #1ddbb7;
+  color: #fff;
+}
+
+.no-btn {
+  background-color: #e74c3c;
+  color: #fff;
+}

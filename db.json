@@ -65,6 +65,13 @@
       "username": "AliRanjb",
       "phone": "0910910",
       "password": "A121842523r"
+    },
+    {
+      "id": "2d9c",
+      "username": "Aliranjbartest",
+      "phone": "234872394",
+      "password": "A121842523r",
+      "ownedCurrencies": []
     }
   ]
 }

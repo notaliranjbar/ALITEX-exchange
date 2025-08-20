@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import Searchbar from "../TradePage/Searchbar";
+import StartingPageSearchbar from "./StartingPageSearchbar";
 const StartingHeader= () => {
     const [scrolled, setScrolled] = useState(false);
     useEffect(() => {
@@ -27,7 +27,7 @@ const StartingHeader= () => {
                             Wallet
                 </Link>
             </h2>
-            <Searchbar/>
+            <StartingPageSearchbar/>
             <button className="headerButton" id="guideBtn" onClick={() => navigate("/guide")} >
                 Guide
             </button>

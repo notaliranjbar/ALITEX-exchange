@@ -1,0 +1,118 @@
+.wallet-container {
+  position : relative;
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  max-width: 500px;
+  margin: 20px auto;
+  color: #fff;
+  top: 12vh;
+}
+.wallet-title {
+  font-size: 1.75rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #1ddbb7;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.wallet-title:hover {
+  color: #14a98d;
+}
+
+.wallet-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.wallet-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: rgba(30, 30, 30, 0.85); /* semi-transparent for glass look */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+  color: white;
+  transition: transform 0.25s ease, background 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.wallet-item:hover {
+  transform: translateY(-4px);
+  background: rgba(50, 50, 50, 0.9);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.wallet-item-trade {
+  width: 85px;
+  height: 34px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #1ddbb7, #14a98d);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #fff;
+  letter-spacing: 0.3px;
+  border: none;
+  box-shadow: 0 3px 10px rgba(29, 219, 183, 0.3);
+  transition: all 0.25s ease;
+}
+
+.wallet-item:hover .wallet-item-trade {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, #18b99d, #119f80);
+  box-shadow: 0 4px 14px rgba(29, 219, 183, 0.5);
+}
+
+.wallet-icon {
+  width: 42px;
+  height: 42px;
+  margin-right: 18px;
+  flex-shrink: 0;
+}
+
+.wallet-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-right: 100px; /* keep all trade buttons aligned */
+  font-size: 0.95rem;
+}
+
+.wallet-info .wallet-name {
+  font-weight: 600;
+  color: #fff;
+}
+
+.wallet-info .wallet-amount {
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.wallet-info .wallet-price {
+  color: #1ddbb7;
+  font-weight: 500;
+}
+
+
+.wallet-amount,
+.wallet-price {
+  font-size: 0.95rem;
+  color: #bbb;
+}
+
+.wallet-empty {
+  text-align: center;
+  color: #aaa;
+  font-style: italic;
+}

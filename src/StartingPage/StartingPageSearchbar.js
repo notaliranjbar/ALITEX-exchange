@@ -1,10 +1,17 @@
 import React, { useState } from "react";
-import "./Searchbar.css";
+import "./StartingPageSearchbar.css"; 
+const currencies = [
+  { name: "Bitcoin", icon: "/SearchbarIcons/bitcoin-black-icon.svg" },
+  { name: "Ethereum", icon: "/SearchbarIcons/ethereum-eth-icon.svg" },
+  { name: "Tether", icon: "/SearchbarIcons/tether-usdt-icon.svg" },
+  { name: "Uniswap", icon: "/SearchbarIcons/uniswap-uni-icon.svg" },
+  { name: "Litecoin", icon: "/SearchbarIcons/litecoin-ltc-icon.svg" },
+];
 
-const Searchbar = ({ currencies, selectedCurrencyName, setSelectedCurrencyName }) => {
+const StartingPageSearchbar = () => {
   const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
-
+  const [selected, setSelected] = useState(null);
   const filtered =
     query.length > 0
       ? currencies.filter((c) =>
@@ -13,20 +20,20 @@ const Searchbar = ({ currencies, selectedCurrencyName, setSelectedCurrencyName }
       : [];
 
   const handleSelect = (currency) => {
-    setSelectedCurrencyName(currency.name);
+    setSelected(currency);
     setSearchOpen(false);
-    setQuery("");
+    setQuery(""); 
   };
 
   return (
     <div className="search-bar">
-      <img src="/img/search-icon-png-9969.png" className="search-icon" alt="search" />
+      <img src="/img/search-icon-png-9969.png" className="search-icon"></img>
       <input
         type="text"
         value={query}
         onClick={() => setSearchOpen(true)}
         onChange={(e) => setQuery(e.target.value)}
-        placeholder={selectedCurrencyName || "Search currencies..."}
+        placeholder={selected ? selected.name : "Search currencies..."}
         className="search-input"
       />
       {searchOpen && query.length > 0 && (
@@ -53,4 +60,4 @@ const Searchbar = ({ currencies, selectedCurrencyName, setSelectedCurrencyName }
   );
 };
 
-export default Searchbar;
+export default StartingPageSearchbar;
