@@ -190,21 +190,15 @@ body {
 .right-field {
   background-color: #bff1e5;
 }
-
-/* Make Searchbar inside TradePage full width */
 .trade-field .search-bar {
   width: 100%;
-  left: 0; /* reset left offset from original */
+  left: 0; 
   margin-bottom: 1.5rem;
 }
-
-/* Input inside TradePage slightly bigger */
 .trade-field .search-input {
   font-size: 1.05rem;
   padding: 0.6rem 1rem;
 }
-
-/* Responsive adjustments */
 @media (max-width: 900px) {
   .trade-container {
     flex-direction: column;
@@ -215,7 +209,6 @@ body {
     margin-bottom: 2rem;
   }
 }
-/* Amount input styling */
 .trade-amount {
   width: 100%;
   padding: 0.6rem 1rem;
@@ -237,20 +230,20 @@ body {
 .currency-name {
   font-weight: bold;
   font-size: 1rem;
-  color: white; /* adjust depending on background */
+  color: white; 
 }
 .selected-currency {
   display: flex;
-  align-items: center;   /* vertically align logo and text */
-  gap: 0.5rem;           /* spacing between logo and name */
+  align-items: center;
+  gap: 0.5rem;  
   margin-bottom: 1rem;
 }
 
 .currency-logo {
   width: 60px;
   height: 60px;
-  border-radius: 50%; /* makes it round if the logo is square */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); /* soft shadow */
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); 
   background-color: transparent;
   margin-bottom: 0.5rem;
 }
@@ -288,7 +281,7 @@ body {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 .swap-icon {
-  width: 24px; /* adjust size */
+  width: 24px;
   height: 24px;
   margin-right: 5px;
   margin-top: 5px;

@@ -1,5 +1,5 @@
 import React from "react";
-import "./WalletPage.css"; // <- we'll add some styling
+import "./WalletPage.css"; 
 import WalletPageHeader from "./WalletPageHeader";
 import WalletPageFooter from "./WalletPageFooter";
 const ownedCurrencies =[

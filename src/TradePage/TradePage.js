@@ -27,16 +27,12 @@ const TradePage = () => {
     const [rate, setRate] = useState(null);
     const [calculatedLeftAmount, setCalculatedLeftAmount] = useState(null); 
     const [showSwapPopup, setShowSwapPopup] = useState(false);
-
-  // Update prices and calculations whenever selections or amount change
-  // Update left price individually
   useEffect(() => {
     const ids = currencies.map(c => c.name.toLowerCase()).join(",");
         
     fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd`)
     .then(res => res.json())
     .then(data => {
-        // update the prices in the currencies list
         const updatedCurrencies = currencies.map(c => ({
         ...c,
         price: data[c.name.toLowerCase()]?.usd || 0
@@ -51,16 +47,12 @@ const TradePage = () => {
         if (leftCurrency) setLeftPrice(leftCurrency.price);
     }
     }, [leftCurrencyName]);
-
-// Update right price individually
     useEffect(() => {
     if (rightCurrencyName) {
         const rightCurrency = currencies.find(c => c.name === rightCurrencyName);
         if (rightCurrency) setRightPrice(rightCurrency.price);
     }
     }, [rightCurrencyName]);
-
-// Calculate rate and left amount only when needed
    useEffect(() => {
         const rightCurrency = currencies.find(c => c.name === rightCurrencyName);
         const leftCurrency = currencies.find(c => c.name === leftCurrencyName);
@@ -103,11 +95,10 @@ const TradePage = () => {
         </div>
         <div className="trade-container">
             <TradePageHeader/>
-        {/* Left Field */}
         <div className="trade-field left-field">
             <Searchbar
             currencies={currencies}
-            // Pass selected currency name to TradePage
+
             selectedCurrencyName={leftCurrencyName}
             setSelectedCurrencyName={setLeftCurrencyName}
             />
@@ -126,10 +117,8 @@ const TradePage = () => {
         </div>
 
         </div>
-        {/* Swap Button */}
         <div className="swap-button">
             <button onClick={() => {
-            // Only show popup if left & right currencies and right amount are filled
             if (leftCurrencyName && rightCurrencyName && rightAmount) {
                 setShowSwapPopup(true);
             }
@@ -138,8 +127,6 @@ const TradePage = () => {
             
             </button>
         </div>
-
-        {/* Right Field */}
         <div className="trade-field right-field">
             <Searchbar
             currencies={currencies}
@@ -158,12 +145,12 @@ const TradePage = () => {
                 Amount$:{" "}
                 <input
                     type="number"
-                    value={rightAmountDollar}   // NEW
-                    onChange={(e) => {          // MODIFIED
+                    value={rightAmountDollar}
+                    onChange={(e) => { 
                     const val = e.target.value === "" ? "" : Number(e.target.value);
-                    setRightAmountDollar(val);   // NEW
-                    // auto-fill normal amount based on price
-                    setRightAmount(val && rightPrice ? val / rightPrice : ""); // NEW
+                    setRightAmountDollar(val);
+
+                    setRightAmount(val && rightPrice ? val / rightPrice : "");
                     }}
                     min="0"
                     step="any"
@@ -178,8 +165,8 @@ const TradePage = () => {
                 value={rightAmount}
                 onChange={(e) => {
                     const val = e.target.value === "" ? "" : Number(e.target.value);
-                    setRightAmount(val);                    // <- updates rightAmount
-                    setRightAmountDollar(val && rightPrice ? val * rightPrice : ""); // <- auto updates amount$
+                    setRightAmount(val);
+                    setRightAmountDollar(val && rightPrice ? val * rightPrice : "");
                 }}
                 min="0"
                 step="any"
