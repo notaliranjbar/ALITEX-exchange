@@ -30,6 +30,21 @@ export const UsersProvider = ({ children }) => {
     await axios.put(`http://localhost:5000/users/${user.id}`, updatedUser);
     setUser(updatedUser); 
   };
+  const updateUserUsername = async (newUsername) =>{
+    if(!user) return;
+    const updatedUser = {...user , username : newUsername};
+    await axios.put(`http://localhost:5000/users/${user.id}` , updatedUser);
+  }
+  const updateUserPhonenumber = async (newPhonenumber) =>{
+    if(!user) return;
+    const updatedUser = {...user , phoneNumber : newPhonenumber};
+    await axios.put(`http://localhost:5000/users/${user.id}` , newPhonenumber);
+  }
+  const updateUserPassword = async (newPassword) =>{
+    if(!user) return;
+    const updatedUser = {...user , password : newPassword};
+    await axios.put(`http://localhost:5000/users/${user.id}` , updatedUser);
+  }
  useEffect(() => {
   if (!user) return;
   const filteredCurrencies = user.ownedCurrencies
@@ -44,7 +59,7 @@ export const UsersProvider = ({ children }) => {
     }, [user?.ownedCurrencies]);
 
   return (
-    <UsersContext.Provider value={{ user , login , signup , updateOwnedCurrencies }}>
+    <UsersContext.Provider value={{ user , login , signup , updateOwnedCurrencies , updateUserUsername , updateUserPhonenumber , updateUserPassword }}>
       {children}
     </UsersContext.Provider>
   );
