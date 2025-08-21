@@ -40,7 +40,7 @@ function SignupPage() {
       return;
     }
     if (!usernameExist && !phoneExists){
-      const newUser = { username, phone, password , currencies};
+      const newUser = { username, phone, password , currencies , id:`${username}`};
       try {
         await axios.post("http://localhost:5000/users", newUser);
       } catch (error) {

@@ -1,77 +1,16 @@
 {
   "users": [
     {
-      "id": "ccc8",
-      "username": "AliRanjbar",
-      "phone": "09109100419",
-      "password": "12345678"
-    },
-    {
-      "id": "071c",
-      "username": "AliRanjbar",
-      "phone": "0910",
-      "password": "2134345"
-    },
-    {
-      "id": "705c",
-      "username": "AliRanj",
-      "phone": "09109100419",
-      "password": "ssrfs"
-    },
-    {
-      "id": "c6f5",
-      "username": "AliRanjbar",
-      "phone": "09109100",
-      "password": "dgdf"
-    },
-    {
-      "id": "792f",
-      "username": "AliRanjbar",
-      "phone": "09109100418",
-      "password": "dgdf"
-    },
-    {
-      "id": "86c1",
-      "username": "AliRanjbar",
-      "phone": "09109100418",
-      "password": "dgdf"
-    },
-    {
-      "id": "3f65",
-      "username": "AliRanjbar",
-      "phone": "09109100418",
-      "password": "dgdf"
-    },
-    {
-      "id": "f901",
-      "username": "AliRanjbar",
-      "phone": "09109100418",
-      "password": "dgdf"
-    },
-    {
-      "id": "4319",
-      "username": "aliranjbar",
-      "phone": "384568934",
-      "password": "93845"
-    },
-    {
-      "id": "c3f1",
-      "username": "Aliaslkfks",
-      "phone": "2342348",
-      "password": "sdklfjs"
-    },
-    {
-      "id": "93b4",
-      "username": "AliRanjb",
-      "phone": "0910910",
-      "password": "A121842523r"
-    },
-    {
-      "id": "2d9c",
-      "username": "Aliranjbartest",
-      "phone": "234872394",
+      "id": "dfkldjsf",
+      "username": "dfkldjsf",
+      "phone": "20934239084",
       "password": "A121842523r",
-      "ownedCurrencies": []
+      "currencies": [
+        {
+          "name": "tether",
+          "amount": 1000
+        }
+      ]
     }
   ]
 }

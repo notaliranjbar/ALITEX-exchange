@@ -52,7 +52,8 @@ const TradePage = () => {
     .then(data => {
         const updatedCurrencies = ownedCurrencies.map(c => ({
         ...c,
-        price: data[c.name.toLowerCase()]?.usd || 0
+        price: data[c.name.toLowerCase()]?.usd || 0,
+        icon : `/Icons/${(c.name).toLowerCase()}.svg`
         }));
         setOwnedCurrencies(updatedCurrencies);
     })
