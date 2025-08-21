@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './StartingPage/StartingPage.css';
 import App from './App';
-import { CurrenciesProvider } from "./CurrenciesProvide";
+import { UsersProvider } from "./UsersProvider";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <CurrenciesProvider>
+    <UsersProvider>
           <App />
-    </CurrenciesProvider>
+    </UsersProvider>
 
   </React.StrictMode>
 ); 

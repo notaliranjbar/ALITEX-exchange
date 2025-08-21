@@ -2,7 +2,7 @@ import React from "react";
 import "./WalletPage.css"; 
 import WalletPageHeader from "./WalletPageHeader";
 import WalletPageFooter from "./WalletPageFooter";
-import { useCurrencies } from "../CurrenciesProvide";
+import { useCurrencies } from "../UsersProvider";
 
 const WalletPage = () => {
   const { ownedCurrencies, setOwnedCurrencies } = useCurrencies();

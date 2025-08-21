@@ -4,7 +4,7 @@ import "./TradePage.css";
 import TradePageHeader from "./TradePageHeader.js";
 import { ReactComponent as ArrowIcon } from "./line-angle-left-icon.svg";
 import TradePageFooter from "./TradePageFooter.js";
-import { useCurrencies } from "../CurrenciesProvide";
+import { useCurrencies } from "../UsersProvider.js";
 
 const TradePage = () => {
     const [currencies , setCurrencies] = useState([

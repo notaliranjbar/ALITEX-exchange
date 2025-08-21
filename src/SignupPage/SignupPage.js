@@ -4,8 +4,6 @@ import axios from "axios";
 import "./SignupPage.css"; 
 import SignupHeader from "./SignupHeader";
 import SignupFooter from "./SignupFooter";
-import { useUsers } from "../context/UsersProvider"; 
-
 function SignupPage() {
   const [username, setUsername] = useState("");
   const [phone, setPhone] = useState("");
