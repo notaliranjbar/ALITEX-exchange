@@ -4,7 +4,9 @@ import axios from "axios";
 import "./SignupPage.css"; 
 import SignupHeader from "./SignupHeader";
 import SignupFooter from "./SignupFooter";
+import { useUsers } from "../context/UsersProvider"; 
 function SignupPage() {
+  const { signup, users } = useUsers();
   const [username, setUsername] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
@@ -40,12 +42,7 @@ function SignupPage() {
       return;
     }
     if (!usernameExist && !phoneExists){
-      const newUser = { username, phone, password , currencies , id:`${username}`};
-      try {
-        await axios.post("http://localhost:5000/users", newUser);
-      } catch (error) {
-        console.error("Error registering user:", error);
-      }
+      await signup({ username, phone, password, currencies });
     }
 };
 

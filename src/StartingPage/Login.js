@@ -1,5 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
+import { useContext } from "react";
+import { UsersContext } from "../context/UsersProvider"; 
 const Login = () => {
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
@@ -9,6 +11,7 @@ const Login = () => {
     const [usernameInvalid, setUsernameInvalid] = useState(false);
     const [passWordInvalid, setPasswordInvalid] = useState(false);
     let hasErr = false;
+    const { login } = useContext(UsersContext);
     const handleSubmit = async(e) =>{
         e.preventDefault()
         setSubmitted(true);
@@ -43,7 +46,7 @@ const Login = () => {
             }else{
                 setPassErr("none")
             }
-            alert("you loged in successfuly")
+            await login(username, password);
         }catch{
             console.error("Error fetching users:");
         }
