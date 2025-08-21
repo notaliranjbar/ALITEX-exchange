@@ -1,67 +1,99 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
+
 const UsersContext = createContext();
 
 export const UsersProvider = ({ children }) => {
-  const [user , setUser] = useState(null)
-  const login = async (username , password) => {
-    const res = await axios.get(`http://localhost:5000/users?username=${username}&password=${password}`);
-    if(res.data.length > 0){
-      setUser(res.data[0]);
-      return true
-    }
-    return false
+  const [user, setUser] = useState(null);
 
-  }
-  const signup = async ({username , password , phoneNumber}) => {
-    const newUser = {
-    id : username,
-    username: username,
-    phone: phoneNumber, 
-    password: password, 
-    ownedCurrencies: [{ name: "tether", amountOwned: 1000 }] 
+  const login = async (username, password) => {
+    try {
+      const res = await axios.get(
+        `http://localhost:5000/users?username=${username}&password=${password}`
+      );
+      if (res.data.length > 0) {
+        setUser(res.data[0]);
+        return true;
+      }
+      return false;
+    } catch (err) {
+      console.error("Login error:", err);
+      return false;
+    }
   };
+
+  const signup = async ({ username, password, phone }) => {
+    const newUser = {
+      id: username, 
+      username,
+      phone,
+      password,
+      ownedCurrencies: [{ name: "tether", amountOwned: 1000 }],
+    };
     const res = await axios.post("http://localhost:5000/users", newUser);
     setUser(res.data);
+  };
+
+  const updateUser = async (updatedUser) => {
+  if (!user) return;
+  try {
+    const res = await axios.put(
+      `http://localhost:5000/users/${encodeURIComponent(user.id)}`,
+      updatedUser
+    );
+    setUser(res.data);
+  } catch (err) {
+    console.error("Update error:", err);
   }
+  };
+
+
+  const updateUserUsername = async (newUsername) => {
+    if (!user) return;
+    await updateUser({ ...user, username: newUsername });
+  };
+
+  const updateUserPhonenumber = async (newPhone) => {
+    if (!user) return;
+    await updateUser({ ...user, phone: newPhone });
+  };
+
+  const updateUserPassword = async (newPassword) => {
+    if (!user) return;
+    await updateUser({ ...user, password: newPassword });
+  };
+
   const updateOwnedCurrencies = async (newCurrencies) => {
     if (!user) return;
-    const updatedUser = { ...user, ownedCurrencies: newCurrencies };
-    await axios.put(`http://localhost:5000/users/${user.id}`, updatedUser);
-    setUser(updatedUser); 
+    await updateUser({ ...user, ownedCurrencies: newCurrencies });
   };
-  const updateUserUsername = async (newUsername) =>{
-    if(!user) return;
-    const updatedUser = {...user , username : newUsername};
-    await axios.put(`http://localhost:5000/users/${user.id}` , updatedUser);
-  }
-  const updateUserPhonenumber = async (newPhonenumber) =>{
-    if(!user) return;
-    const updatedUser = {...user , phoneNumber : newPhonenumber};
-    await axios.put(`http://localhost:5000/users/${user.id}` , newPhonenumber);
-  }
-  const updateUserPassword = async (newPassword) =>{
-    if(!user) return;
-    const updatedUser = {...user , password : newPassword};
-    await axios.put(`http://localhost:5000/users/${user.id}` , updatedUser);
-  }
- useEffect(() => {
-  if (!user) return;
-  const filteredCurrencies = user.ownedCurrencies
-    ? user.ownedCurrencies.filter(c => (Number(c.amountOwned) || 0) > 0)
-    : [];
-  const updatedUser = { ...user, ownedCurrencies: filteredCurrencies };
-  if (JSON.stringify(filteredCurrencies) !== JSON.stringify(user.ownedCurrencies)) {
-        axios.put(`http://localhost:5000/users/${user.id}`, updatedUser)
-          .then(() => setUser(updatedUser))
-          .catch(err => console.error(err));
-      }
-    }, [user?.ownedCurrencies]);
+
+  useEffect(() => {
+    if (!user) return;
+    const filteredCurrencies = user.ownedCurrencies
+      ? user.ownedCurrencies.filter((c) => Number(c.amountOwned) > 0)
+      : [];
+    if (JSON.stringify(filteredCurrencies) !== JSON.stringify(user.ownedCurrencies)) {
+      updateOwnedCurrencies(filteredCurrencies);
+    }
+  }, [user?.ownedCurrencies]);
 
   return (
-    <UsersContext.Provider value={{ user , login , signup , updateOwnedCurrencies , updateUserUsername , updateUserPhonenumber , updateUserPassword }}>
+    <UsersContext.Provider
+      value={{
+        user,
+        login,
+        signup,
+        updateOwnedCurrencies,
+        updateUserUsername,
+        updateUserPhonenumber,
+        updateUserPassword,
+        updateUser
+      }}
+    >
       {children}
     </UsersContext.Provider>
   );
 };
+
 export const useUsers = () => useContext(UsersContext);

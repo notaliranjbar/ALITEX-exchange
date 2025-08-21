@@ -3,35 +3,70 @@
     {
       "id": "AliRanjbar",
       "username": "AliRanjbar",
+      "phone": "0910910041",
       "password": "A121842523r",
       "ownedCurrencies": [
         {
-          "name": "Tether",
-          "amountOwned": 1000.2165577527278,
-          "price": 0.999957
-        }
-      ]
-    },
-    {
-      "id": "Aliranj",
-      "username": "Aliranj",
-      "password": "Aa1232342",
-      "ownedCurrencies": [
+          "name": "tether",
+          "amountOwned": 304.90000000000003,
+          "price": 0.999862,
+          "icon": "/Icons/tether.svg"
+        },
+        {
+          "name": "Uniswap",
+          "amountOwned": 2.242071922103213,
+          "price": 10.28,
+          "icon": "/Icons/uniswap.svg"
+        },
         {
           "name": "Ethereum",
-          "amountOwned": 0.2332878399753636,
-          "price": 4286.34
+          "amountOwned": 0.005159795289404679,
+          "price": 4263.58
         }
       ]
     },
     {
-      "id": "Aliranjb",
-      "username": "Aliranjb",
+      "id": "AlihRanjbar",
+      "username": "AlihRanjbar",
+      "phone": "345374058",
       "password": "A121842523r",
       "ownedCurrencies": [
         {
           "name": "tether",
           "amountOwned": 1000
+        }
+      ]
+    },
+    {
+      "id": "alihasaniranjbar",
+      "username": "alihasaniranjbar",
+      "phone": "23534534",
+      "password": "Aa59347534",
+      "ownedCurrencies": [
+        {
+          "name": "tether",
+          "amountOwned": 1000,
+          "price": 0.999834,
+          "icon": "/Icons/tether.svg"
+        }
+      ]
+    },
+    {
+      "id": "AliRanjbarjhf",
+      "username": "AliRanjbarjhf",
+      "phone": "764758786",
+      "password": "87567576456Aa",
+      "ownedCurrencies": [
+        {
+          "name": "tether",
+          "amountOwned": 499.89,
+          "price": 0.99979,
+          "icon": "/Icons/tether.svg"
+        },
+        {
+          "name": "Ethereum",
+          "amountOwned": 0.1178448227513664,
+          "price": 4242.91
         }
       ]
     }

@@ -5,6 +5,7 @@ import TradePageHeader from "./TradePageHeader.js";
 import { ReactComponent as ArrowIcon } from "./line-angle-left-icon.svg";
 import TradePageFooter from "./TradePageFooter.js";
 import { useUsers } from "../UsersProvider";
+import { useNavigate } from "react-router-dom";
 const TradePage = () => {
     const [currencies , setCurrencies] = useState([
     { name: "Bitcoin", price: null, icon: "/Icons/bitcoin-color-icon.svg" },
@@ -29,6 +30,7 @@ const TradePage = () => {
     const [showSwapPopup, setShowSwapPopup] = useState(false);
     const [ownedAmount , setownedAmount] = useState(null);
      const { user, updateOwnedCurrencies } = useUsers(); 
+     const navigate = useNavigate()
      const ownedCurrencies = user?.ownedCurrencies || []; 
   useEffect(() => {
     const ids = currencies.map(c => c.name.toLowerCase()).join(",");
@@ -240,6 +242,7 @@ const TradePage = () => {
                         price: leftPrice || 0,
                         });
                     }
+                    
                     }
                     updateOwnedCurrencies(newOwnedCurrencies);
                     setRightAmount("");
@@ -248,8 +251,10 @@ const TradePage = () => {
                     setLeftCurrencyName(null);
                     setRightCurrencyName(null);
 
-                    alert("Swapped successfully!");
+                    
                     setShowSwapPopup(false);
+                    alert("successfull")
+                    navigate("/wallet")
                 }}
                 >
 

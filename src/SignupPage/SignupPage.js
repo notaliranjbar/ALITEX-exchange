@@ -5,6 +5,7 @@ import "./SignupPage.css";
 import SignupHeader from "./SignupHeader";
 import SignupFooter from "./SignupFooter";
 import { useUsers } from "../UsersProvider"; 
+import { useNavigate } from "react-router-dom";
 function SignupPage() {
   const { signup , login} = useUsers();
   const [username, setUsername] = useState("");
@@ -17,6 +18,8 @@ function SignupPage() {
   const [phoneExists , setphoneExists] = useState(false)
   const [submitted, setSubmitted] = useState(false);
   const [currencies , setCurrencies] = useState([{name : "tether" , amount : 1000}])
+  const navigate = useNavigate(); 
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitted(true);
@@ -44,7 +47,7 @@ function SignupPage() {
     if (!usernameExist && !phoneExists){
       await signup({ username, phone, password, currencies });
       await  login({username , password});
-      alert("you signed up successfully")
+      navigate("/profile");
     }
 };
 

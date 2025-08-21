@@ -10,6 +10,7 @@ import DepositeWithdrawGuidePage from "./GuidePage/GuidePages/DepositeWithdrawGu
 import SiteGuidePage from "./GuidePage/GuidePages/SiteGuidePage.js";
 import FuturesGuidePage from "./GuidePage/GuidePages/FuturesGuidePage.js";
 import SignupGuidePage from "./GuidePage/GuidePages/SignupGuidePage.js";
+import ProfilePage from "./ProfilePage/ProfilePage.js";
 import RouteWrapper from "./RouteWrapper";
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route element={<RouteWrapper />}>
         <Route path="/" element={<StartingPage />} />
         <Route path="/trade" element={<TradePage />} />
+        <Route path="/profile" element={<ProfilePage />} />
         <Route path="/wallet" element={<WalletPage />} />
         <Route path="/guide" element={<GuidePage />}/>
         <Route path ="/guide/site" element={<SiteGuidePage/>}/>
@@ -26,7 +28,7 @@ function App() {
         <Route path ="/guide/deposite-withdraw" element={<DepositeWithdrawGuidePage/>}/>
         <Route path ="/guide/signup" element={<SignupGuidePage/>}/>
         <Route path ="/guide/futures" element={<FuturesGuidePage/>}/>
-        <Route path="signup" element={<SignupPage />} />
+        <Route path="/signup" element={<SignupPage />} />
         </Route>
         
       </Routes>

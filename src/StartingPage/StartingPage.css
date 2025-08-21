@@ -908,3 +908,45 @@ header::after {
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.6);
 }
+.logged-in-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* spacing between buttons */
+  margin-top: 50px;
+}
+.logged-in-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px; /* spacing between buttons */
+  margin-top: 50px;
+  width: 100%;
+  max-width: 300px; /* optional: limit max width */
+  pointer-events: auto;
+}
+.logged-in-buttons .login-btn {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background: #1b9a76;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logged-in-buttons .login-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  background: #33d6a8;
+  
+}
+
+.logged-in-buttons .login-btn:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}

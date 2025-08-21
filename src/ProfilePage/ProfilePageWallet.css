@@ -1,18 +1,17 @@
-.wallet-page{
-  min-height: 100vh;
-}
 .wallet-container {
-  position : relative;
+  position: relative;
   background: #1e1e1e;
   padding: 20px;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   max-width: 500px;
-  margin: 20px auto;
+  width: 100%;
   color: #fff;
-  top: 12vh;
-  min-height: 100vh;
+  min-height: 250px; 
+  margin-top: 2rem; 
 }
+
+
 .wallet-title {
   font-size: 1.75rem;
   margin-bottom: 20px;
@@ -28,11 +27,10 @@
   color: #14a98d;
 }
 
-.wallet-list {
+.profile-wallet-list {
   display: flex;
   flex-direction: column;
   gap: 18px;
-  min-height: 70vh;
 }
 
 .wallet-item {
@@ -109,7 +107,6 @@
   font-weight: 500;
 }
 
-
 .wallet-amount,
 .wallet-price {
   font-size: 0.95rem;
@@ -120,4 +117,4 @@
   text-align: center;
   color: #aaa;
   font-style: italic;
-} 
+}

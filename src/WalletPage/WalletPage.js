@@ -1,9 +1,8 @@
 import React from "react";
 import "./WalletPage.css"; 
-import WalletPageHeader from "./WalletPageHeader";
-import WalletPageFooter from "./WalletPageFooter";
 import { useUsers } from "../UsersProvider"; 
-
+import WalletPageFooter from "./WalletPageFooter";
+import WalletPageHeader from "./WalletPageHeader";
 const WalletPage = () => {
   const { user, updateOwnedCurrencies } = useUsers();
   const ownedCurrencies = user?.ownedCurrencies || [];
