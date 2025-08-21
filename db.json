@@ -18,10 +18,20 @@
       "password": "Aa1232342",
       "ownedCurrencies": [
         {
+          "name": "Ethereum",
+          "amountOwned": 0.2332878399753636,
+          "price": 4286.34
+        }
+      ]
+    },
+    {
+      "id": "Aliranjb",
+      "username": "Aliranjb",
+      "password": "A121842523r",
+      "ownedCurrencies": [
+        {
           "name": "tether",
-          "amountOwned": 1000,
-          "price": 0.999931,
-          "icon": "/Icons/tether.svg"
+          "amountOwned": 1000
         }
       ]
     }
