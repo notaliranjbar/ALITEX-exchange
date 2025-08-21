@@ -4,9 +4,9 @@ import axios from "axios";
 import "./SignupPage.css"; 
 import SignupHeader from "./SignupHeader";
 import SignupFooter from "./SignupFooter";
-import { useUsers } from "../context/UsersProvider"; 
+import { useUsers } from "../UsersProvider"; 
 function SignupPage() {
-  const { signup, users } = useUsers();
+  const { signup} = useUsers();
   const [username, setUsername] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
@@ -43,6 +43,7 @@ function SignupPage() {
     }
     if (!usernameExist && !phoneExists){
       await signup({ username, phone, password, currencies });
+      alert("you signed up successfully")
     }
 };
 

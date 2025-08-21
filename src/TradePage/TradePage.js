@@ -4,7 +4,7 @@ import "./TradePage.css";
 import TradePageHeader from "./TradePageHeader.js";
 import { ReactComponent as ArrowIcon } from "./line-angle-left-icon.svg";
 import TradePageFooter from "./TradePageFooter.js";
-import { useUsers } from "../context/UsersProvider";
+import { useUsers } from "../UsersProvider";
 const TradePage = () => {
     const [currencies , setCurrencies] = useState([
     { name: "Bitcoin", price: null, icon: "/Icons/bitcoin-color-icon.svg" },
@@ -74,7 +74,7 @@ const TradePage = () => {
     useEffect(() => {
         if (rightCurrencyName) {
             const found = ownedCurrencies.find(c => c.name === rightCurrencyName);
-            setownedAmount(found ? Number(found.ownedAmount) : 0);
+            setownedAmount(found ? Number(found.amountOwned) : 0);
         } else {
             setownedAmount(null);
         }
@@ -146,10 +146,10 @@ const TradePage = () => {
                 onClick={() => {
                 if (leftCurrencyName && rightCurrencyName && rightAmount) {
                     // Ensure the rightAmount does not exceed ownedAmount
-                    if (rightCurrency && rightCurrency.ownedAmount) {
-                    if (rightAmount > rightCurrency.ownedAmount) {
-                        setRightAmount(rightCurrency.ownedAmount);
-                        setRightAmountDollar((rightCurrency.ownedAmount * rightPrice).toFixed(2));
+                    if (rightCurrency && rightCurrency.amountOwned) {
+                    if (rightAmount > rightCurrency.amountOwned) {
+                        setRightAmount(rightCurrency.amountOwned);
+                        setRightAmountDollar((rightCurrency.amountOwned * rightPrice) ? (rightCurrency.amountOwned * rightPrice).toFixed(2) : 0);
                     }
                     }
 
@@ -219,45 +219,29 @@ const TradePage = () => {
             <button
                 className="yes-btn"
                 onClick={() => {
-                    setOwnedCurrencies((prev) => {
-                    let updated = [...prev];
-
-                    // 1. Subtract from rightCurrency
+                    const newOwnedCurrencies = [...ownedCurrencies];
                     if (rightCurrencyName && rightAmount) {
-                        updated = updated.map((c) => {
-                        if (c.name === rightCurrencyName) {
-                            const current = Number(c.ownedAmount) || 0; // 🔹 use ownedAmount
-                            const toSubtract = Number(rightAmount) || 0; // 🔹 convert to number
-                            return { ...c, ownedAmount: current - toSubtract }; // 🔹 update ownedAmount
+                    for (let i = 0; i < newOwnedCurrencies.length; i++) {
+                        if (newOwnedCurrencies[i].name === rightCurrencyName) {
+                        newOwnedCurrencies[i].amountOwned =
+                            (Number(newOwnedCurrencies[i].amountOwned) || 0) - Number(rightAmount);
                         }
-                        return c;
-                        });
                     }
-
-                    // 2. Add to leftCurrency (or create new if missing)
+                    }
                     if (leftCurrencyName && calculatedLeftAmount) {
-                        const toAdd = Number(calculatedLeftAmount) || 0;
-                        const existing = updated.find((c) => c.name === leftCurrencyName);
-
-                        if (existing) {
-                        updated = updated.map((c) =>
-                            c.name === leftCurrencyName
-                            ? { ...c, ownedAmount: (Number(c.ownedAmount) || 0) + toAdd } // 🔹 use ownedAmount
-                            : c
-                        );
-                        } else {
-                        updated.push({
-                            name: leftCurrencyName,
-                            ownedAmount: toAdd, // 🔹 use ownedAmount
-                            price: leftPrice || 0,
+                    const existing = newOwnedCurrencies.find(c => c.name === leftCurrencyName);
+                    if (existing) {
+                        existing.amountOwned =
+                        (Number(existing.amountOwned) || 0) + Number(calculatedLeftAmount);
+                    } else {
+                        newOwnedCurrencies.push({
+                        name: leftCurrencyName,
+                        amountOwned: Number(calculatedLeftAmount),
+                        price: leftPrice || 0,
                         });
-                        }
                     }
-
-                    return updated;
-                    });
-
-                    // Reset fields
+                    }
+                    updateOwnedCurrencies(newOwnedCurrencies);
                     setRightAmount("");
                     setRightAmountDollar("");
                     setCalculatedLeftAmount(null);

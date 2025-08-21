@@ -2,10 +2,11 @@ import React from "react";
 import "./WalletPage.css"; 
 import WalletPageHeader from "./WalletPageHeader";
 import WalletPageFooter from "./WalletPageFooter";
-import { useCurrencies } from "../UsersProvider";
+import { useUsers } from "../UsersProvider"; 
 
 const WalletPage = () => {
-  const { ownedCurrencies, setOwnedCurrencies } = useCurrencies();
+  const { user, updateOwnedCurrencies } = useUsers();
+  const ownedCurrencies = user?.ownedCurrencies || [];
   return (
     <div className="wallet-page" style={{backgroundColor : "#2d2e2d"}}>
         <WalletPageHeader/>
@@ -22,7 +23,7 @@ const WalletPage = () => {
                 />
                 <div className="wallet-info">
                     <p className="wallet-name">{currency.name}</p>
-                    <p className="wallet-amount">Amount: {(currency.ownedAmount.toFixed(4))}</p>
+                    <p className="wallet-amount">Amount: {(currency.amountOwned.toFixed(4))}</p>
                     <p className="wallet-price">Price: ${currency.price}</p>
                 </div>
                 <button className="wallet-item-trade">

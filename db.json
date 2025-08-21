@@ -1,14 +1,14 @@
 {
   "users": [
     {
-      "id": "dfkldjsf",
-      "username": "dfkldjsf",
-      "phone": "20934239084",
+      "id": "AliRanjbar",
+      "username": "AliRanjbar",
       "password": "A121842523r",
-      "currencies": [
+      "ownedCurrencies": [
         {
-          "name": "tether",
-          "amount": 1000
+          "name": "Tether",
+          "amountOwned": 1000.2165577527278,
+          "price": 0.999957
         }
       ]
     }

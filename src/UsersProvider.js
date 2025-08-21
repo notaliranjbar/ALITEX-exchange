@@ -5,7 +5,7 @@ const UsersContext = createContext();
 export const UsersProvider = ({ children }) => {
   const [user , setUser] = useState(null)
   const login = async (username , password) => {
-    const res = await axios.get(`http://localhost:3001/users?username=${username}&password=${password}`);
+    const res = await axios.get(`http://localhost:5000/users?username=${username}&password=${password}`);
     if(res.data.length > 0){
       setUser(res.data[0]);
       return true
@@ -13,27 +13,35 @@ export const UsersProvider = ({ children }) => {
     return false
 
   }
-  const signup = async (username , password , phoneNumber) => {
-    const newUser = {username , password , phoneNumber , ownedCurrencies : [{name : "tether" , amountOwned : 1000}]}
-    const res = await axios.post("http://localhost:3001/users", newUser);
-    setUser(res.data);// to log in when the sign up finished automatically
+  const signup = async ({username , password , phoneNumber}) => {
+    const newUser = {
+    id : username,
+    username: username,
+    phone: phoneNumber, 
+    password: password, 
+    ownedCurrencies: [{ name: "tether", amountOwned: 1000 }] 
+  };
+    const res = await axios.post("http://localhost:5000/users", newUser);
+    setUser(res.data);
   }
   const updateOwnedCurrencies = async (newCurrencies) => {
     if (!user) return;
     const updatedUser = { ...user, ownedCurrencies: newCurrencies };
-    await axios.put(`http://localhost:3001/users/${user.id}`, updatedUser);
-    setUser(updatedUser); // update local state
+    await axios.put(`http://localhost:5000/users/${user.id}`, updatedUser);
+    setUser(updatedUser); 
   };
-  useEffect(() => {
-    if (!user) return;
-    const filteredCurrencies = user.ownedCurrencies.filter(c => (Number(c.amountOwned) || 0) > 0);
-    if (filteredCurrencies.length !== user.ownedCurrencies.length) {
-      const updatedUser = { ...user, ownedCurrencies: filteredCurrencies };
-      axios.put(`http://localhost:3001/users/${user.id}`, updatedUser)
-        .then(() => setUser(updatedUser))
-        .catch(err => console.error(err));
-    }
-  }, [user?.ownedCurrencies]); 
+ useEffect(() => {
+  if (!user) return;
+  const filteredCurrencies = user.ownedCurrencies
+    ? user.ownedCurrencies.filter(c => (Number(c.amountOwned) || 0) > 0)
+    : [];
+  const updatedUser = { ...user, ownedCurrencies: filteredCurrencies };
+  if (JSON.stringify(filteredCurrencies) !== JSON.stringify(user.ownedCurrencies)) {
+        axios.put(`http://localhost:5000/users/${user.id}`, updatedUser)
+          .then(() => setUser(updatedUser))
+          .catch(err => console.error(err));
+      }
+    }, [user?.ownedCurrencies]);
 
   return (
     <UsersContext.Provider value={{ user , login , signup , updateOwnedCurrencies }}>
@@ -41,4 +49,4 @@ export const UsersProvider = ({ children }) => {
     </UsersContext.Provider>
   );
 };
-export const useCurrencies = () => useContext(UsersContext);
+export const useUsers = () => useContext(UsersContext);

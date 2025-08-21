@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useContext } from "react";
-import { UsersContext } from "../context/UsersProvider"; 
+import { useUsers } from "../UsersProvider";
 const Login = () => {
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
@@ -11,7 +11,7 @@ const Login = () => {
     const [usernameInvalid, setUsernameInvalid] = useState(false);
     const [passWordInvalid, setPasswordInvalid] = useState(false);
     let hasErr = false;
-    const { login } = useContext(UsersContext);
+    const { user, login } = useUsers();
     const handleSubmit = async(e) =>{
         e.preventDefault()
         setSubmitted(true);
