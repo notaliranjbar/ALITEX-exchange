@@ -10,10 +10,12 @@ import DepositeWithdrawGuidePage from "./GuidePage/GuidePages/DepositeWithdrawGu
 import SiteGuidePage from "./GuidePage/GuidePages/SiteGuidePage.js";
 import FuturesGuidePage from "./GuidePage/GuidePages/FuturesGuidePage.js";
 import SignupGuidePage from "./GuidePage/GuidePages/SignupGuidePage.js";
+import RouteWrapper from "./RouteWrapper";
 function App() {
   return (
     <Router>
       <Routes>
+        <Route element={<RouteWrapper />}>
         <Route path="/" element={<StartingPage />} />
         <Route path="/trade" element={<TradePage />} />
         <Route path="/wallet" element={<WalletPage />} />
@@ -25,6 +27,8 @@ function App() {
         <Route path ="/guide/signup" element={<SignupGuidePage/>}/>
         <Route path ="/guide/futures" element={<FuturesGuidePage/>}/>
         <Route path="signup" element={<SignupPage />} />
+        </Route>
+        
       </Routes>
     </Router>
   );

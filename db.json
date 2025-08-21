@@ -11,6 +11,19 @@
           "price": 0.999957
         }
       ]
+    },
+    {
+      "id": "Aliranj",
+      "username": "Aliranj",
+      "password": "Aa1232342",
+      "ownedCurrencies": [
+        {
+          "name": "tether",
+          "amountOwned": 1000,
+          "price": 0.999931,
+          "icon": "/Icons/tether.svg"
+        }
+      ]
     }
   ]
 }

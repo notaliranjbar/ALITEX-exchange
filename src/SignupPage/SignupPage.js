@@ -6,7 +6,7 @@ import SignupHeader from "./SignupHeader";
 import SignupFooter from "./SignupFooter";
 import { useUsers } from "../UsersProvider"; 
 function SignupPage() {
-  const { signup} = useUsers();
+  const { signup , login} = useUsers();
   const [username, setUsername] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
@@ -43,6 +43,7 @@ function SignupPage() {
     }
     if (!usernameExist && !phoneExists){
       await signup({ username, phone, password, currencies });
+      await  login({username , password});
       alert("you signed up successfully")
     }
 };
@@ -97,7 +98,7 @@ function SignupPage() {
           <h2 className="err" style={{display: passErr}}>Password must have 8letters length and contain at least one uppercase letter, one lowercase letter, and a number</h2>
           <button type="submit">Sign Up</button>
         </form>
-        <p className="loginFooter fade-up" style={{cursor:"default" , animationDelay:"0.4s"}}>Do you have an account? <a href="#">Log in</a></p>
+        <p className="loginFooter fade-up" style={{cursor:"default" , animationDelay:"0.4s"}}>Do you have an account? <a href="/">Log in</a></p>
       </div>
       <SignupFooter/>
     </div>

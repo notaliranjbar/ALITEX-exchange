@@ -56,7 +56,7 @@ const Login = () => {
         <div className="login-overlay">
             <p className="loginHeader fade-up">Swap anywhere , anytime</p>
             <form className="login-form fade-up" style={{animationDelay:"0.2s"}}  onSubmit={handleSubmit}>
-                <h2 className="loginTitle">Log in</h2>
+                <h2 className="loginTitle" style={{cursor : "pointer"}}>Log in</h2>
                 <input type="text" placeholder="Username"
                     onChange={(e) => {setUsername(e.target.value);
                                     setUsernameInvalid(false);
@@ -73,7 +73,7 @@ const Login = () => {
                 <h2 className="err" style={{display: passErr}}>The password is incorrect</h2>
                 <button type="submit"  className="logInButton">Next</button>
             </form>
-            <p className="loginFooter fade-up" style={{cursor:"default" , animationDelay:"0.4s"}}>Don’t have an account? <a href="#">Sign up</a></p>
+            <p className="loginFooter fade-up" style={{cursor:"default" , animationDelay:"0.4s"}}>Don’t have an account? <a href="signup">Sign up</a></p>
             <p className="loginDiscription fade-up" style={{animationDelay:"0.4s"}}><span>Buy and Sell crypto in 14+ networks including Ethereum,</span><span>Unichain and Base </span></p>
         </div>
     )
