@@ -24,6 +24,16 @@ export const UsersProvider = ({ children }) => {
     await axios.put(`http://localhost:3001/users/${user.id}`, updatedUser);
     setUser(updatedUser); // update local state
   };
+  useEffect(() => {
+    if (!user) return;
+    const filteredCurrencies = user.ownedCurrencies.filter(c => (Number(c.amountOwned) || 0) > 0);
+    if (filteredCurrencies.length !== user.ownedCurrencies.length) {
+      const updatedUser = { ...user, ownedCurrencies: filteredCurrencies };
+      axios.put(`http://localhost:3001/users/${user.id}`, updatedUser)
+        .then(() => setUser(updatedUser))
+        .catch(err => console.error(err));
+    }
+  }, [user?.ownedCurrencies]); 
 
   return (
     <UsersContext.Provider value={{ user , login , signup , updateOwnedCurrencies }}>

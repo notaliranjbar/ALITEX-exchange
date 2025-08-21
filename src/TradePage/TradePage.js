@@ -4,8 +4,7 @@ import "./TradePage.css";
 import TradePageHeader from "./TradePageHeader.js";
 import { ReactComponent as ArrowIcon } from "./line-angle-left-icon.svg";
 import TradePageFooter from "./TradePageFooter.js";
-import { useCurrencies } from "../UsersProvider.js";
-
+import { useUsers } from "../context/UsersProvider";
 const TradePage = () => {
     const [currencies , setCurrencies] = useState([
     { name: "Bitcoin", price: null, icon: "/Icons/bitcoin-color-icon.svg" },
@@ -19,7 +18,6 @@ const TradePage = () => {
     { name: "Polkadot", price: null, icon: "/Icons/polkadot-dot-icon.svg" },
     { name: "Dogecoin", price: null, icon: "/Icons/dogecoin-doge-icon.svg" },
     ])
-    const {ownedCurrencies , setOwnedCurrencies} = useCurrencies();
     const [rightCurrencyName, setRightCurrencyName] = useState(null);
     const [rightAmount, setRightAmount] = useState("");
     const [rightPrice, setRightPrice] = useState(null);
@@ -30,6 +28,8 @@ const TradePage = () => {
     const [calculatedLeftAmount, setCalculatedLeftAmount] = useState(null); 
     const [showSwapPopup, setShowSwapPopup] = useState(false);
     const [ownedAmount , setownedAmount] = useState(null);
+     const { user, updateOwnedCurrencies } = useUsers(); 
+     const ownedCurrencies = user?.ownedCurrencies || []; 
   useEffect(() => {
     const ids = currencies.map(c => c.name.toLowerCase()).join(",");
         
@@ -55,7 +55,7 @@ const TradePage = () => {
         price: data[c.name.toLowerCase()]?.usd || 0,
         icon : `/Icons/${(c.name).toLowerCase()}.svg`
         }));
-        setOwnedCurrencies(updatedCurrencies);
+        updateOwnedCurrencies(updatedCurrencies); 
     })
     .catch(err => console.error(err));
     }, []);
