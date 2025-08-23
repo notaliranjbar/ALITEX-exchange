@@ -40,20 +40,28 @@ const Login = () => {
     }
   };
   if (user) {
-    return (
-      <div className="login-overlay">
-        <p className="loginHeader fade-up" style={{ display: "none" }}>
-          Swap anywhere, anytime
-        </p>
+  return (
+    <div className="login-overlay">
+      <p className="loginHeader fade-up" style={{ display: "none" }}>
+        Swap anywhere, anytime
+      </p>
 
-        <div className="logged-in-buttons fade-up" style={{ animationDelay: "0.2s" }}>
-          <button className="login-btn" onClick={() => navigate("/profile")}>Profile</button>
-          <button className="login-btn" onClick={() => navigate("/trade")}>Trade</button>
-          <button className="login-btn" onClick={() => navigate("/wallet")}>Wallet</button>
-        </div>
-      </div>
-    );
-  }
+      <h1
+        className="fade-up"
+        style={{
+          animationDelay: "0.2s",
+          textAlign: "center",
+          color: "#ffffff", // white text
+          textShadow: "2px 2px 8px #33d6a8", // green shadow
+          fontSize: "3rem",
+        }}
+      >
+        Enjoy!
+      </h1>
+    </div>
+  );
+
+}
   return (
     <div className="login-overlay">
       <p className="loginHeader fade-up">Swap anywhere , anytime</p>

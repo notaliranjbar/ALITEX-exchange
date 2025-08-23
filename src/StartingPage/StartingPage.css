@@ -912,17 +912,17 @@ header::after {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px; /* spacing between buttons */
+  gap: 15px;
   margin-top: 50px;
 }
 .logged-in-buttons {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px; /* spacing between buttons */
+  gap: 12px; 
   margin-top: 50px;
   width: 100%;
-  max-width: 300px; /* optional: limit max width */
+  max-width: 300px;
   pointer-events: auto;
 }
 .logged-in-buttons .login-btn {

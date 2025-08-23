@@ -61,10 +61,7 @@ const StartingFeatures = ({uniswapPrice , uniswapDailychange , tetherPrice , tet
                                 not only when cryptocurrency prices rise but also when they fall. This means you can take advantage of both bullish 
                                 and bearish market conditions.
                                 With leverage of up to 5×, you can amplify your gains significantly, allowing even small price movements 
-                                to have a bigger impact on your potential profits. The platform is designed with advanced tools and real-time
-                                data to help you make informed trading decisions quickly and efficiently. Nobitex’s intuitive interface, combined 
-                                    with detailed analytics, ensures that both beginner and experienced traders can navigate the market with 
-                                    confidence and precision. Don’t miss out on the chance to maximize your returns while managing your risk in a 
+                                to have a bigger impact on your potential profits. . Don’t miss out on the chance to maximize your returns while managing your risk in a 
                                     dynamic and fast-moving crypto environment.
                             </h3>
                             <div className="exploreTokensg">
@@ -78,8 +75,7 @@ const StartingFeatures = ({uniswapPrice , uniswapDailychange , tetherPrice , tet
                         <div className="box orange fade-in-up">
                             <LightningIcon className= "lightningIcon" style= {{fill:"rgba(255, 77, 0, 0.6)"}}/>
                             <h2>Smarter swaps, zero friction.</h2>
-                            <h3 className="h2Discription">On Alitex, speed is everything. Our lightning-fast order processing ensures instant confirmations, so buying and selling 
-                                 cryptocurrencies feels seamless and effortless. With Alitex, you can trade faster, smarter, and more efficiently, giving you the 
+                            <h3 className="h2Discription">On Alitex, speed is everything. With Alitex, you can trade faster, smarter, and more efficiently, giving you the 
                                  edge you need to stay ahead in the crypto world.
                             </h3>
                             <div className="exploreTokenso">
