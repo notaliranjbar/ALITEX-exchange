@@ -6,6 +6,7 @@ import { ReactComponent as ArrowIcon } from "./line-angle-left-icon.svg";
 import TradePageFooter from "./TradePageFooter.js";
 import { useUsers } from "../UsersProvider";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 const TradePage = () => {
     const [currencies , setCurrencies] = useState([
     { name: "Bitcoin", price: null, icon: "/Icons/bitcoin-color-icon.svg" },
@@ -19,7 +20,9 @@ const TradePage = () => {
     { name: "Polkadot", price: null, icon: "/Icons/polkadot-dot-icon.svg" },
     { name: "Dogecoin", price: null, icon: "/Icons/dogecoin-doge-icon.svg" },
     ])
-    const [rightCurrencyName, setRightCurrencyName] = useState(null);
+    const location = useLocation();
+    const selectedCurrency = location.state?.selectedRightCurrency || null;
+    const [rightCurrencyName, setRightCurrencyName] = useState(selectedCurrency);
     const [rightAmount, setRightAmount] = useState("");
     const [rightPrice, setRightPrice] = useState(null);
     const [leftCurrencyName, setLeftCurrencyName] = useState(null);

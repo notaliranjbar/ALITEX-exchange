@@ -102,7 +102,7 @@ const ProfilePage = () => {
           )}
 
           {selected === "wallet" && (
-            <div className="wallet-container">
+            <div className="wallet-container" style={{marginTop : "-52px"}}>
               <h2 className="wallet-title">My Wallet</h2>
               <div className="profile-wallet-list">
                 {ownedCurrencies.length > 0 ? (
@@ -120,7 +120,6 @@ const ProfilePage = () => {
                         </p>
                         <p className="wallet-price">Price: ${currency.price}</p>
                       </div>
-                      <button className="wallet-item-trade">Trade</button>
                     </div>
                   ))
                 ) : (

@@ -54,6 +54,7 @@ const Login = () => {
           color: "#ffffff", 
           textShadow: "2px 2px 8px #33d6a8",
           fontSize: "3rem",
+          marginLeft:"30px"
         }}
       >
         Enjoy!

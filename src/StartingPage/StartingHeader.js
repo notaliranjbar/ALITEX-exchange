@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useUsers } from "../UsersProvider";
 import StartingPageSearchbar from "./StartingPageSearchbar";
 const StartingHeader= () => {
     const [scrolled, setScrolled] = useState(false);
+    const { user} = useUsers();
+    const [ProfileButtonDisplay , setProfileButtonDisplay] = useState("none")
     useEffect(() => {
         const handleScroll = () => {
         setScrolled(window.scrollY > 50);
@@ -12,6 +15,9 @@ const StartingHeader= () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
     const navigate = useNavigate();
+    useEffect(()=>{
+        if(user) setProfileButtonDisplay("block")
+    })
 
     return (
         <header className={`header ${scrolled ? "scrolled" : ""}`}>
@@ -24,14 +30,14 @@ const StartingHeader= () => {
                 </Link>
             </h2>
             <h2><Link to="/wallet" style={{ color: "inherit",textDecoration: "none",cursor: "pointer"}}>
-                            Wallet
+                            wallet
                 </Link>
             </h2>
             <StartingPageSearchbar/>
             <button className="headerButton" id="guideBtn" onClick={() => navigate("/guide")} >
                 Guide
             </button>
-            <button className="headerButton" id="signupBtn" onClick={() => navigate("/signup")}>Signup</button>
+            <button className="headerButton" id="profileBtn" onClick={() => navigate("/profile")} style={{display : ProfileButtonDisplay}}>Profile</button>
         </nav>
         </header>
 

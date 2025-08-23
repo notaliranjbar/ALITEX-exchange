@@ -23,7 +23,7 @@ const StartingFeatures = ({uniswapPrice , uniswapDailychange , tetherPrice , tet
                                 <img src="/img/uniswap-uni-logo.png" alt="Uniswap" className="price-icon" />
                                 <span className="iconTitle">Uniswap</span>
                                 <span className="iconStand">UNI</span>
-                                <span className="price-text">${uniswapPrice}</span>
+                                <span className="price-text">${uniswapPrice.toFixed(3)}</span>
                                 <span className="daily-change" style={{ color: safe(uniswapDailychange) >= 0 ? "green" : "red"}}>{safe(uniswapDailychange).toFixed(2)}%</span>
 
                             </div>
@@ -31,7 +31,7 @@ const StartingFeatures = ({uniswapPrice , uniswapDailychange , tetherPrice , tet
                                 <img src="/img/Cjdowner-Cryptocurrency-Flat-Tether-USDT.512.png" alt="Tether" className="price-icon" />
                                 <span className="iconTitle">Tether</span>
                                 <span className="iconStand">USDT</span>
-                                <span className="price-text">${tetherPrice}</span>
+                                <span className="price-text">${tetherPrice.toFixed(3)}</span>
                                 <span className="daily-change" style={{ color: safe(tetherDailychange) >= 0 ? "green" : "red"}}>{safe(tetherDailychange).toFixed(2)}%</span>
 
                             </div>
@@ -39,7 +39,7 @@ const StartingFeatures = ({uniswapPrice , uniswapDailychange , tetherPrice , tet
                                 <img src="/img/cdnlogo.com_ethereum-eth.png" alt="Ethereum" className="price-icon" />
                                 <span className="iconTitle">Ethereum</span>
                                 <span className="iconStand">ETH</span>
-                                <span className="price-text">${ethereumPrice}</span>
+                                <span className="price-text">${ethereumPrice.toFixed(3)}</span>
                                 <span className="daily-change" style={{ color: safe(ethereumDailychange) >= 0 ? "green" : "red"}}>{safe(ethereumDailychange).toFixed(2)}%</span>
 
                             </div>
@@ -47,7 +47,7 @@ const StartingFeatures = ({uniswapPrice , uniswapDailychange , tetherPrice , tet
                                 <img src="/img/polygon-matic-logo.png" alt="Polygon" className="price-icon" />
                                 <span className="iconTitle">Polygon</span>
                                 <span className="iconStand">MATIC</span>
-                                <span className="price-text">${polygonPrice}</span>
+                                <span className="price-text">${polygonPrice.toFixed(3)}</span>
                                 <span className="daily-change" style={{ color: safe(polygonDailyChange) >= 0 ? "green" : "red"}}>{safe(polygonDailyChange).toFixed(2)}%</span>
 
                             </div>

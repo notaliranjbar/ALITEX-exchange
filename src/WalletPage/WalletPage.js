@@ -3,9 +3,11 @@ import "./WalletPage.css";
 import { useUsers } from "../UsersProvider"; 
 import WalletPageFooter from "./WalletPageFooter";
 import WalletPageHeader from "./WalletPageHeader";
+import { useNavigate } from "react-router-dom";
 const WalletPage = () => {
   const { user, updateOwnedCurrencies } = useUsers();
   const ownedCurrencies = user?.ownedCurrencies || [];
+  const navigate = useNavigate();
   return (
     <div className="wallet-page" style={{backgroundColor : "#2d2e2d"}}>
         <WalletPageHeader/>
@@ -14,7 +16,7 @@ const WalletPage = () => {
         <div className="wallet-list">
             {ownedCurrencies.length > 0 ? (
             ownedCurrencies.map((currency, index) => (
-                <div key={index} className="wallet-item">
+                <div key={index} className="wallet-item" onClick={() =>navigate("/trade", { state: { selectedRightCurrency: currency.name } })}>
                 <img
                     src={`/Icons/${currency.name.toLowerCase()}.svg`} 
                     alt={currency.name}
@@ -25,9 +27,6 @@ const WalletPage = () => {
                     <p className="wallet-amount">Amount: {(currency.amountOwned.toFixed(4))}</p>
                     <p className="wallet-price">Price: ${currency.price}</p>
                 </div>
-                <button className="wallet-item-trade">
-                    Trade
-                </button>
                 </div>
             ))
             ) : (

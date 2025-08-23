@@ -453,7 +453,7 @@ header::after {
 #guideBtn {
   background-color: #1b9a76;
   margin-right: 20px;
-  margin-left: 20%;
+  margin-left: auto;
 }
 #guideBtn:hover {
   background-color: rgba(80, 240, 180, 1);
@@ -465,15 +465,15 @@ header::after {
   transform: translateY(1px);
   box-shadow: 0 3px 8px rgba(0,0,0,0.2);
 }
-#signupBtn {
+#profileBtn {
   background-color: #1b9a76;
 }
-#signupBtn:hover {
+#profileBtn:hover {
   background-color: rgba(80, 240, 180, 1);
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0,0,0,0.25);
 }
-#signupBtn:active {
+#profileBtn:active {
   background-color: rgba(50, 170, 120, 1);
   transform: translateY(1px);
   box-shadow: 0 3px 8px rgba(0,0,0,0.2);
@@ -666,17 +666,6 @@ header::after {
   font-size: 1.3rem;
   font-weight: bold;
   color: rgba(254, 254, 254, 0.7);
-}
-.priceBox.tether .price-text{
-  margin-left: 14vh;
-  margin-right: 3vh;
-}
-.priceBox.ethereum .price-text{
-  margin-left: 6vh;
-}
-.priceBox.uniswap .price-text{
-  margin-left: 10vh;
-  margin-right: 2vh;
 }
 .daily-change{
   margin: 0;

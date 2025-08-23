@@ -9,19 +9,19 @@
         {
           "name": "tether",
           "amountOwned": 304.90000000000003,
-          "price": 0.999585,
+          "price": 0.999597,
           "icon": "/Icons/tether.svg"
         },
         {
           "name": "Uniswap",
           "amountOwned": 2.242071922103213,
-          "price": 11.27,
+          "price": 11.21,
           "icon": "/Icons/uniswap.svg"
         },
         {
           "name": "Ethereum",
           "amountOwned": 0.005159795289404679,
-          "price": 4736.37,
+          "price": 4716.88,
           "icon": "/Icons/ethereum.svg"
         }
       ]
