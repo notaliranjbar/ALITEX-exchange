@@ -618,7 +618,7 @@ header::after {
   background-color: rgba(63, 207, 151, 0.3);
 }
 .exploreTokensg:hover {
-  background-color: rgba(63, 207, 151, 0.5);
+  background-color: rgba(63, 207, 151, 0.5) ;
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0,0,0,0.25);
   
