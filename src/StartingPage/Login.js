@@ -51,8 +51,8 @@ const Login = () => {
         style={{
           animationDelay: "0.2s",
           textAlign: "center",
-          color: "#ffffff", // white text
-          textShadow: "2px 2px 8px #33d6a8", // green shadow
+          color: "#ffffff", 
+          textShadow: "2px 2px 8px #33d6a8",
           fontSize: "3rem",
         }}
       >

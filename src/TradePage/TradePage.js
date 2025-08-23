@@ -121,7 +121,10 @@ const TradePage = () => {
         </div>
         <div className="trade-container">
             <TradePageHeader/>
+        
+        
         <div className="trade-field left-field">
+            <h2 className="swap-title">Swap to:</h2>
             <Searchbar
             currencies={currencies}
 
@@ -147,7 +150,6 @@ const TradePage = () => {
             <button
                 onClick={() => {
                 if (leftCurrencyName && rightCurrencyName && rightAmount) {
-                    // Ensure the rightAmount does not exceed ownedAmount
                     if (rightCurrency && rightCurrency.amountOwned) {
                     if (rightAmount > rightCurrency.amountOwned) {
                         setRightAmount(rightCurrency.amountOwned);
@@ -164,6 +166,7 @@ const TradePage = () => {
         </div>
 
         <div className="trade-field right-field">
+            <h2 className="swap-title">Swap from:</h2>
             <Searchbar
             currencies={ownedCurrencies}
             selectedCurrencyName={rightCurrencyName}
